@@ -1,0 +1,8 @@
+.container
+{
+    border:2px solid yellow;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

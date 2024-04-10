@@ -1,7 +1,23 @@
-.login
-{
-    border:2px solid red;
+.login-container
+{ 
     display:flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
+}
+
+.login{
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 50%;
+    padding: 20px;
+}
+
+.login-page{
+    display: flex;
+    height: 100vh;
+}
+
+.input-field{
+    margin-bottom: 5px;
 }

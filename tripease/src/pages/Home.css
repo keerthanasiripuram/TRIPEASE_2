@@ -1,0 +1,17 @@
+navbar
+{
+    display:flex;
+    padding: 1rem;
+}
+.left-container
+{
+    border:2px solid red;
+    padding:1rem;
+}
+.right-container
+{
+    border:2px solid green;
+    display:flex;
+    flex:1;
+    padding:0.5rem;
+}
