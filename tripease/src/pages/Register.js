@@ -7,18 +7,18 @@ export default function Register()
 {
     const [registerdata,setRegisterdata]=useState({name:"",email:"",phoneNumber:"",password:"",confirmPassword:""})
     const [img,setImg]=useState("")
+    const [file, setFile] = useState(null);
     const navigate=useNavigate()
 
     async function register(e)
     {   
-        
-        console.log(15,registerdata)
-        console.log(16,img)
-        //const values=[...registerdata,img]
         e.preventDefault()
+        const formData = new FormData();
+        formData.append('image', file);
+        formData.append("registerData", JSON.stringify(registerdata))
         
         try{
-            const response=await axios.post("http://localhost:3000/register",{registerdata,img})
+            const response=await axios.post("http://localhost:3000/register",formData)
         
         if(response.data.success)
         {
@@ -41,6 +41,7 @@ export default function Register()
     }
     const handleFileUpload = (event) => {
         const selectedFile = event.target.files[0];
+        setFile(event.target.files[0])
         const reader = new FileReader();
     
         reader.onload = (e) => {
