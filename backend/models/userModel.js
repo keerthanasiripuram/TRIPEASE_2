@@ -15,22 +15,15 @@ const userSchema=new Schema({
     {   type:String,
         required:true
     },
-    confirmPassword:
-    {
-        type:String,
-        required:true
-    },
     phoneNumber:
     {
         type:String,
         required:true
     },
-    img:
+    profileImage:
     {
         type:String,
         default:""
     },
-
-    
 },)
 module.exports=mongoose.model('user',userSchema)

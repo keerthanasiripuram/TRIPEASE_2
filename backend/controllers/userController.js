@@ -4,32 +4,30 @@ const bcrypt=require('bcryptjs')
 
 
 
-module.exports.signup=async(req,res)=>
+module.exports.signup=async(req,res,next)=>
 { 
     
     try{
-        const userExists=await userModel.findOne({email:req.body[0].email});
+        let registerData = JSON.parse(req.body.registerData)
+        const userExists=await userModel.findOne({email:registerData.email});
         if(userExists)
         {
             return res.status(200)
             .send({message:"User already exists",success:false})
         }
-        const password=req.body[0].password
-        console.log("password",password)
+        const password=registerData.password
         const salt= await bcrypt.genSalt(10)
-        console.log("salt",salt)
         const hashedPassword=await bcrypt.hash(password,salt)
-        console.log("hshd",hashedPassword)
-        req.body[0].password=hashedPassword
-        console.log("bodypass",req.body[0].password)
-        const newuser=new userModel(req.body)
-        console.log("newuser",newuser)
+        registerData.password=hashedPassword
+        registerData.profileImage = req.file.filename
+        delete registerData.confirmPassword
+        const newuser=new userModel(registerData)
         await newuser.save()
         return res.status(200).send({message:"User created successfully",success:true})
     }
     catch(error)
     {
-        return res.status(500).send({message:"Error creating user",success:false,error})
+        return res.status(500).send({message:error.message,success:false,error})
     }
 }
 module.exports.login=async(req,res)=>
