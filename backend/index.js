@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.use(express.json());
 const port=3000
 app.use(cors())
-app.post('/register', upload.single('image'),userController.signup)
+app.post('/register',userController.signup)
 app.post('/login',userController.login)
 app.listen(port,()=>
 {
