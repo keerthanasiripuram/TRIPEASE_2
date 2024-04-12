@@ -14,15 +14,7 @@ export default function Share()
                     <div className="shareOptions">
                         <div className="shareOption">
                             <PermMedia htmlColor="blue"/>
-                            <span className="shareOptionText">Photo or Video</span>
-                        </div>
-                        <div className="shareOption">
-                            <Label htmlColor="green"/>
-                            <span className="shareOptionText">Tag</span>
-                        </div>
-                        <div className="shareOption">
-                            <EmojiEmotions htmlColor="goldenrod"/>
-                            <span className="shareOptionText">Feelings</span>
+                            <span className="shareOptionText">Photo </span>
                         </div>
                     </div>
                     <button className="shareButton">Share</button>

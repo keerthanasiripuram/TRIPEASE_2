@@ -36,9 +36,6 @@ export default function Posts({post})
                 <img className="likeIcon" src="assets/flowers/bqut2.jpg" onClick={likeHandler}/>
                 <span className="postLikeCounter">{like}people liked it</span> 
                 </div>
-                <div className="postBottomRight">
-                    <span className="postCommentText">{post.comment}comments</span>
-                </div>
                 </div>
             </div>
         </div>
