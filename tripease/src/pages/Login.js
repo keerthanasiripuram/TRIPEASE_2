@@ -39,6 +39,7 @@ export default function Login() {
         <>
         <div className='login-page'>
         <div className='login-container'>
+            <img src="/assets/image-1.png" alt="not found"/>
             <div className='login'>
             <form>
                 <div className="form-group input-field">
@@ -49,7 +50,7 @@ export default function Login() {
                     <label >Password</label>
                     <input type="password" className="form-control" value={data.password} onChange={(e)=>{setdata({...data,password:e.target.value})}} placeholder="Password" />
                 </div>
-                <button type="submit" onClick={submitForm} className="btn btn-primary">Submit</button>
+                <button type="submit" onClick={submitForm} className="btn btn1">Submit</button>
             </form>
             </div>
             </div>

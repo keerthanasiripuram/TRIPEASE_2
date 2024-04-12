@@ -1,7 +1,8 @@
 const userModel=require('../models/userModel')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
-
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 
 module.exports.signup=async(req,res,next)=>
@@ -45,7 +46,7 @@ module.exports.login=async(req,res)=>
             return res.send(200).send({message:"password is incorrect",success:false})
         }
         else{
-            const token=jwt.sign({id:userExists._id},"KEERTHANA",
+            const token=jwt.sign({id:userExists._id},process.env.secretKey,
             {
                 expiresIn:"1d"
             })

@@ -6,6 +6,7 @@ import Register from "./pages/Register"
 import Home from "./pages/Home"
 import Trial from "./components/Trial"
 import Profile from "./pages/Profile"
+import Reg from "./pages/Reg"
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/trial" element={<Trial/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/reg" element={<Reg/>}/>
     </Routes>
     </BrowserRouter>
     </>
