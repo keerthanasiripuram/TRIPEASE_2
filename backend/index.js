@@ -4,13 +4,45 @@ const db=require('./db')
 const bodyParser=require('body-parser')
 const authMiddleware = require('./authMiddleware')
 const userController=require('./controllers/userController')
+const multer = require('multer');
 const app=express()
+
+//dot env setup
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+
+//Middlewares for server
 app.use(bodyParser.json())
 app.use(express.json());
-const port=3000
 app.use(cors())
-app.post('/register',userController.signup)
+
+
+//Multer Code for image Uploading
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        let uploadPath = path.join(__dirname,process.env.PROFILE_IMAGE_UPLOAD_PATH )
+      cb(null, uploadPath); // Destination folder for storing uploads
+    },
+    filename: function (req, file, cb) {
+        let filename = new Date().getTime().toString() + file.originalname 
+      cb(null, filename); 
+    }
+  });
+  
+const upload = multer({ storage: storage });
+
+//End Points
+app.post('/register', upload.single('image'),userController.signup)
 app.post('/login',userController.login)
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
+//Server Connection
+const port= process.env.PORT
 app.listen(port,()=>
 {
     console.log(`running on ${port}`)
