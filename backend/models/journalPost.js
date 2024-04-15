@@ -7,16 +7,19 @@ const journalPostSchema=new Schema({
         type:String,
         required:true
     },
-    img:
-    {
-        type:String,
-        default:""
-    },
     desc:{
         type:String,
         default:""
     },
-    
+    users: {
+        type: [Types.ObjectId],
+        ref: 'user',
+        default: []
+    },
+    images: {
+        type: [String],
+        default: []
+    }
 },
 {
     timestamps: true,

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import {Link,useNavigate} from "react-router-dom"
 import {message} from "antd"
+import axiosInstance from '../components/axios';
 import "./Login.css"
 export default function Login() {
     const [data,setdata]=useState({email:"",password:""})
@@ -12,11 +13,18 @@ export default function Login() {
         console.log(data)
         e.preventDefault()
         
-        try{
+        //try{
             console.log(data,16)
-            const response=await axios.post("http://localhost:3000/login",data)
-            
-        if(response.data.success)
+            //const response=await axios.post("http://localhost:3000/login",data)
+            axiosInstance.post('/login', data)
+            .then((response) => {
+            console.log('POST Request Success:', response.data);
+            })
+            .catch((error) => {
+            console.error('POST Request Error:', error);
+            });
+            console.log("response",response)
+       /* if(response.data.success)
         {
            //toast.success(response.data.message)
            settoast(response.data.message)
@@ -32,7 +40,7 @@ export default function Login() {
         catch(err)
         {
             settoast("Something went wrong")
-        }
+        }*/
     }
     console.log(toast)
     return (
