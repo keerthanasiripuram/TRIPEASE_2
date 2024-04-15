@@ -42,7 +42,7 @@ export default function Register()
             message.error('Passwords do not match');
             return false;
         }
-        if (!img) {
+        if (!file) {
             message.error('Image is required');
             return false;
         }
