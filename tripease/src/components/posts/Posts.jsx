@@ -10,17 +10,20 @@ export default function Posts({post})
     {
         setLike(isLiked?like-1:like+1)
         setisLiked(!isLiked)
+        console.log(like)
     }
     return(
         <div className="post">
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img className="postProfileImg" src="/assets/flowers/bqut2.jpg"></img>
+                        <img className="postProfileImg" src="/assets/Diary.jpg"></img>
+                        <div className="container">
                         <span className="postUsername">
                             {Users.filter(u=>u.id===post.userId)[0].username}
                         </span>
                         <span className="postDate">{post.date}</span>
+                        </div>
                     </div>
                     <div className="postTopRight">
                         <MoreVert/>
@@ -32,8 +35,12 @@ export default function Posts({post})
                 </div>
                 <div className="postBottom">
                 <div className="postBottomLeft">
-                <img className="likeIcon" src="assets/flowers/bqut2.jpg" onClick={likeHandler}/>
-                <img className="likeIcon" src="assets/flowers/bqut2.jpg" onClick={likeHandler}/>
+                <span className="material-symbols-outlined" onClick={likeHandler}>
+                favorite
+                </span>
+                <span className="material-symbols-outlined" onClick={likeHandler}>
+                thumb_up
+                </span>
                 <span className="postLikeCounter">{like}people liked it</span> 
                 </div>
                 </div>

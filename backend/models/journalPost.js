@@ -1,17 +1,17 @@
 const mongoose=require('mongoose')
-const {Schema}=mongoose;
+const {Schema,Types}=mongoose;
 
 const journalPostSchema=new Schema({
-    name:
-    {
-        type:String,
-        required:true
-    },
+
     desc:{
         type:String,
         default:""
     },
-    users: {
+    user:{
+        type:Types.ObjectId,
+        ref:'user',
+    },
+    interactors: {
         type: [Types.ObjectId],
         ref: 'user',
         default: []

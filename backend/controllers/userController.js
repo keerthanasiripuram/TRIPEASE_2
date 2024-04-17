@@ -1,4 +1,5 @@
 const userModel=require('../models/userModel')
+const journalModel=require('../models/journalPost')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const path = require('path');
@@ -59,5 +60,21 @@ module.exports.login=async(req,res)=>
     catch(error)
     {
         return res.status(500).send({message:"Error logging user",success:false,error})
+    }
+}
+
+
+module.exports.createJournalPost=async(req,res,next)=>
+{ 
+    
+    try{
+        let journalPostData=JSON.parse(req.body.JournalData)
+        const newpost=new journalModel(journalPostData)
+        await newpost.save()
+        return res.status(200).send({message:"Post created successfully",success:true})
+    }
+    catch(error)
+    {
+        return res.status(500).send({message:error.message,success:false,error})
     }
 }

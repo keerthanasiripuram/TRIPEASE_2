@@ -1,3 +1,11 @@
+.postTopLeft .container
+{
+    border:2px solid brown;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    gap:0 !important
+}
 .post
 {
     width:100%;
@@ -19,7 +27,8 @@
 .postTopLeft
 {
     display:flex;
-    align-items:center
+    align-items:center;
+    border: 2px solid red;
 }
 .postProfileImg
 {
@@ -28,25 +37,33 @@
     border-radius:50%;
     object-fit:cover;
 }
-.postUsernmae
+.postUsername
 {
     font-size: 15px;
     font-weight: 500;
-    margin:0 10px
+    border:2px solid violet;
+    display: flex;
+    flex-direction: column;
+    width:15rem;
+    margin-left: -1rem;
 }
 .postDate
 {
     font-size: 12px;
+    border:2px solid green;
+    width:10rem;
+    margin-left: -6rem;
 }
 .postCenter
 {
     margin:20px 0
 }
 .postProfileImg{
-    margin-top: 20px;
     width:100%;
     max-height: 500px;
     object-fit: contain;
+    margin-left: 0.2rem;
+    margin-top: -1rem;
 }
 .postBottom
 {

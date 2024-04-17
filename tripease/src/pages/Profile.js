@@ -10,17 +10,18 @@ export default function Profile({user})
         <div>
            <TopBar/>
            <div className='profile'>
-           <SideBar></SideBar>
+           
            <div className="profileRight">
             <div className="profileRightTop">
                 <div className="profileCover">
                     <img src="assets/default_img.png" alt="" className="profileCoverImg" />
                     <img src="assets/default_img.png" alt="" className="profileUserImg" />
-                </div>
-                <div className="profileInfo">
+                    <div className="profileInfo">
                     <h4 className="profileInfoName">Keerthana</h4>
                     <span className="profileInfoDesc">Kikki</span>
                 </div>
+                </div>
+                
             </div>
             <div className="profileRightBottom">
             <Feed/>

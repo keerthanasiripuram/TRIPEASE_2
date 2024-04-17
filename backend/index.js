@@ -31,10 +31,25 @@ const storage = multer.diskStorage({
   
 const upload = multer({ storage: storage });
 
+//Multer Code for image Uploading
+const journalStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      let uploadPath = path.join(__dirname,process.env.PROFILE_IMAGE_JOURNAL_UPLOAD_PATH)
+    cb(null, uploadPath); // Destination folder for storing uploads
+  },
+  filename: function (req, file, cb) {
+      let filename = new Date().getTime().toString() + file.originalname 
+    cb(null, filename); 
+  }
+});
+
+const journalUpload = multer({ storage: journalStorage});
+console.log("dedsdsdsds")
+console.log(journalUpload)
 //End Points
 app.post('/register', upload.single('image'),userController.signup)
 app.post('/login',userController.login)
-
+app.post('/a',journalUpload.array('images'),userController.createJournalPost)
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err.stack);

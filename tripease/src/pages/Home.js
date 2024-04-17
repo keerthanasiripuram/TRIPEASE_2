@@ -1,9 +1,11 @@
 import React, { useEffect,useState } from "react"
 import Feature from "../components/Feature"
 import Carousel from "../components/Carousel"
+import Trial from "../components/Trial"
 import "./Home.css"
 export default function Home()
 {  
+
     const links=[
         {   
             id:1,
@@ -36,6 +38,10 @@ export default function Home()
             feature_link:"flight"
         },
     ]
+    
+      
+
+    
     return(
         <>
         <navbar>
@@ -50,7 +56,10 @@ export default function Home()
             }
             </div>
         </navbar>
-        <Carousel/>
+       {/*<Carousel/>*/}
+       <h2>Multi-Element Carousel</h2>
+       
+        <Trial/>
         </>
     )
 }

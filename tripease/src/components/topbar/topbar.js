@@ -7,14 +7,12 @@ export default function topbar()
     return(
         <div className="topbarContainer">
            <div className="topbarLeft">
-                <span className='logo'>LamaSocial</span>
+                <span className='logo'>TripEase</span>
            </div>
-           <div className="topbarCenter">
-            <div className='searchbar'>
-                <Search className='searchIcon'/>
-                <input type="text" placeholder='Search for post' className="searchInput" />
+           <div className='topbarRight'>
+            <h1>Journal</h1>
             </div>
         </div>
-        </div>
+        
     )
 }

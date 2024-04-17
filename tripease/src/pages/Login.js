@@ -23,7 +23,7 @@ export default function Login() {
             .catch((error) => {
             console.error('POST Request Error:', error);
             });
-            console.log("response",response)
+            //console.log("response",response)
        /* if(response.data.success)
         {
            //toast.success(response.data.message)
@@ -47,7 +47,7 @@ export default function Login() {
         <>
         <div className='login-page'>
         <div className='login-container'>
-            <img src="/assets/image-1.png" alt="not found"/>
+            <img src="/assets/login1.png" alt="not found"/>
             <div className='login'>
             <form>
                 <div className="form-group input-field">

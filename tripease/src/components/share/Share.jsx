@@ -1,25 +1,103 @@
 import "./share.css"
-import {PermMedia,Label,Room,EmojiEmotions} from "@material-ui/icons"
-export default function Share()
-{
-    return(
-        <div className="share">
-            <div className="shareWrapper">
-                <div className="shareTop">
-                    <img className="shareProfileImg" src="/assets/flowers/bqut2.jpg"></img>
-                    <input placeholder="what's in your mind" className="shareInput"></input>
-                </div>
-                <hr className="shareHr"/>
-                <div className="shareBottom">
-                    <div className="shareOptions">
-                        <div className="shareOption">
-                            <PermMedia htmlColor="blue"/>
-                            <span className="shareOptionText">Photo </span>
-                        </div>
-                    </div>
-                    <button className="shareButton">Share</button>
-                </div>
+import { useState } from "react";
+import { PermMedia, Label, Room, EmojiEmotions } from "@material-ui/icons"
+import Feed from "../feed/Feed";
+import { Modal, Form, Input, Select } from 'antd'
+import { Upload, message } from 'antd';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
+import FormItem from "antd/es/form/FormItem";
+import axios from "axios";
+export default function Share() {
+
+  const [showModal, setShowModal] = useState(false)
+  const [img, setImg] = useState("")
+  const [file, setFile] = useState(null);
+  const handleSubmit = async(values) => {
+    console.log(file)
+    //e.preventDefault()
+
+
+
+    const journalData = new FormData();
+    journalData.append('images', file);
+    journalData.append("postData", JSON.stringify(values))
+    console.log(journalData)
+    try {
+      const response = await axios.post("http://localhost:3000/a", journalData)
+
+      if (response.data.success) {
+
+        message.success(response.data.message)
+        
+      }
+      else {
+
+        message.success(response.data.message)
+      }
+    }
+    catch (err) {
+
+      message.error("something went wrong")
+    }
+  
+}
+const handleFileUpload = (event) => {
+  const selectedFile = event.target.files[0];
+  setFile(event.target.files)
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    setImg(e.target.result);
+  };
+
+  reader.readAsDataURL(selectedFile);
+};
+return (
+  <div className="share">
+    <div className="shareWrapper">
+      <div className="shareBottom">
+        <div className="shareOptions">
+          <div className="shareOption">
+            <PermMedia htmlColor="blue" />
+            {/* <a onTouchMove={uploadJournal}><span className="shareOptionText">Click here to Journal your Trip</span></a>*/}
+            <div>
+
+              <EditOutlined
+                onClick={() => {
+
+                  setShowModal(true)
+                }} />
+
+              <Modal
+                open={showModal}
+                onCancel={() => setShowModal(false)}
+              >
+                <Form layout="vertical" onFinish={handleSubmit} >
+                  {img && (
+                    <div className="form-group input-field">
+                      <img src={img} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                    </div>)}
+                  <div className="form-group input-field">
+                    <label >Upload Image</label>
+                    <input type="file" multiple className="form-control" onChange={handleFileUpload} />
+                  </div>
+                  <FormItem label="Description" name="description">
+                    <Input.TextArea
+                      autosize={{ minRows: 5, maxRows: 20 }}
+                    />
+                  </FormItem>
+                  <div className="d-flex justify-content-end">
+                    <button className="btn btn-primary" type="submit">SAVE</button>
+                  </div>
+                </Form>
+              </Modal>
+
             </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  </div>
+)
 }

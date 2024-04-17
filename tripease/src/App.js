@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Trial from "./components/Trial"
 import Profile from "./pages/Profile"
 import Reg from "./pages/Reg"
+import Modal from "./components/Modal"
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/trial" element={<Trial/>}/>
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/reg" element={<Reg/>}/>
+      <Route path="/modal" element={<Modal/>}/>
     </Routes>
     </BrowserRouter>
     </>
