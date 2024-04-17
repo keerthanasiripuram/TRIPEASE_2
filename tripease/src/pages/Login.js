@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from "axios"
 import {Link,useNavigate} from "react-router-dom"
 import {message} from "antd"
-import axiosInstance from '../components/axios';
 import "./Login.css"
 export default function Login() {
     const [data,setdata]=useState({email:"",password:""})
@@ -16,9 +15,10 @@ export default function Login() {
         //try{
             console.log(data,16)
             //const response=await axios.post("http://localhost:3000/login",data)
-            axiosInstance.post('/login', data)
+            axios.post('/login', data)
             .then((response) => {
             console.log('POST Request Success:', response.data);
+            localStorage.setItem("token", response.data.token)
             })
             .catch((error) => {
             console.error('POST Request Error:', error);

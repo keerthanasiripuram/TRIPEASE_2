@@ -3,7 +3,7 @@ const {Schema,Types}=mongoose;
 
 const journalPostSchema=new Schema({
 
-    desc:{
+    description:{
         type:String,
         default:""
     },

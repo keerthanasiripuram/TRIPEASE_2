@@ -3,6 +3,7 @@ const journalModel=require('../models/journalPost')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const path = require('path');
+const { Types } = require('mongoose');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 
@@ -68,7 +69,12 @@ module.exports.createJournalPost=async(req,res,next)=>
 { 
     
     try{
-        let journalPostData=JSON.parse(req.body.JournalData)
+        let journalPostData=JSON.parse(req.body.postData)
+        journalPostData = {
+            ...journalPostData,
+            user:new Types.ObjectId("6617e43487d0d90e66cf8d13"),
+            images: req.files.map(data=>data.filename)
+        }
         const newpost=new journalModel(journalPostData)
         await newpost.save()
         return res.status(200).send({message:"Post created successfully",success:true})

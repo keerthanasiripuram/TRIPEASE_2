@@ -8,6 +8,8 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import FormItem from "antd/es/form/FormItem";
 import axios from "axios";
+import axiosInstance from "../interceptor"
+
 export default function Share() {
 
   const [showModal, setShowModal] = useState(false)
@@ -23,7 +25,7 @@ export default function Share() {
 			console.log(key[0] + ', ' + key[1])
 		}
     try {
-      const response = await axios.post("http://localhost:3000/a", journalData)
+      const response = await axiosInstance.post("http://localhost:3000/a", journalData)
 
       if (response.data.success) {
 
