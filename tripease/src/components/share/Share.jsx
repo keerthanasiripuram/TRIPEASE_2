@@ -14,15 +14,14 @@ export default function Share() {
   const [img, setImg] = useState("")
   const [file, setFile] = useState(null);
   const handleSubmit = async(values) => {
-    console.log(file)
-    //e.preventDefault()
-
-
-
-    const journalData = new FormData();
-    journalData.append('images', file);
+    let journalData = new FormData();
+    for(let i=0;i<Array.from(file).length;i++){
+      journalData.append("images", file[i]);
+    }
     journalData.append("postData", JSON.stringify(values))
-    console.log(journalData)
+    for (var key of journalData.entries()) {
+			console.log(key[0] + ', ' + key[1])
+		}
     try {
       const response = await axios.post("http://localhost:3000/a", journalData)
 
@@ -80,7 +79,7 @@ return (
                     </div>)}
                   <div className="form-group input-field">
                     <label >Upload Image</label>
-                    <input type="file" multiple className="form-control" onChange={handleFileUpload} />
+                    <input type="file" name="images" multiple className="form-control" onChange={handleFileUpload} />
                   </div>
                   <FormItem label="Description" name="description">
                     <Input.TextArea
