@@ -1,12 +1,12 @@
-.profileContainer
+.profile-container
 {
     border:2px solid black;
 }
-.left-profileContainer
+.left-profile-container
 {
     border:2px solid pink;
 }
-.right-profileContainer
+.right-profile-container
 {
     border:2px solid yellow
 }

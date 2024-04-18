@@ -42,10 +42,8 @@ const journalStorage = multer.diskStorage({
     cb(null, filename); 
   }
 });
-
 const journalUpload = multer({ storage: journalStorage});
-console.log("dedsdsdsds")
-console.log(journalUpload)
+
 //End Points
 app.post('/register', upload.single('image'),userController.signup)
 app.post('/login',userController.login)
