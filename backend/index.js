@@ -50,6 +50,7 @@ console.log(journalUpload)
 app.post('/register', upload.single('image'),userController.signup)
 app.post('/login',userController.login)
 app.post('/a',journalUpload.array('images'),userController.createJournalPost)
+app.get('/get-post-data',userController.getPostData)
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err.stack);

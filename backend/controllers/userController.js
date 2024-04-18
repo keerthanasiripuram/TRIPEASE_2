@@ -84,3 +84,17 @@ module.exports.createJournalPost=async(req,res,next)=>
         return res.status(500).send({message:error.message,success:false,error})
     }
 }
+
+module.exports.getPostData=async(req,res,next)=>
+{ 
+    
+    try{
+        const postData=await journalModel.find()
+        console.log("93",postData)
+        return res.status(200).send({message:"Posts sent successfully",success:true,data:postData})
+    }
+    catch(error)
+    {
+        return res.status(500).send({message:error.message,success:false,error})
+    }
+}
