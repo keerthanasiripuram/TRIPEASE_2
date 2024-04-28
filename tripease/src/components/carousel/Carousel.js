@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageSlider from './ImageSlider';
+import ImageSlider from '../ImageSlider';
 
 const Carousel = () => {
   const images = [

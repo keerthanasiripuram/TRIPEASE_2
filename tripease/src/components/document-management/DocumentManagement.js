@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react"
 import { Modal, Form } from 'antd'
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import {message} from "antd"
-import axiosInstance from "./interceptor"
+import axiosInstance from "../../interceptors/interceptor"
 import "./DocumentManagement.css"
 
 export default function DocumentManagement()

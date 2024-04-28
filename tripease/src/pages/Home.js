@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react"
 import Feature from "../components/Feature"
-import Carousel from "../components/Carousel"
+import Carousel from "../components/carousel/Carousel"
 import Trial from "../components/Trial"
 import "./Home.css"
 export default function Home()

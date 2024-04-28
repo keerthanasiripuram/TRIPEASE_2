@@ -8,7 +8,7 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import FormItem from "antd/es/form/FormItem";
 import axios from "axios";
-import axiosInstance from "../interceptor"
+import axiosInstance from "../../interceptors/interceptor"
 
 export default function Share() {
 

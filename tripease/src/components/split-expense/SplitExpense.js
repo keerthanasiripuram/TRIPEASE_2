@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react"
 import axios from "axios"
-import Expense from "./Expense"
+import Expense from "../expense-management/Expense"
 import "./SplitExpense.css"
 const SplitExpense=()=>
 {   
