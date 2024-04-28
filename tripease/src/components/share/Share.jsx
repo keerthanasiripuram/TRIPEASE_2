@@ -24,6 +24,8 @@ export default function Share() {
     for (var key of journalData.entries()) {
 			console.log(key[0] + ', ' + key[1])
 		}
+    console.log(file)
+    console.log(journalData)
     try {
       const response = await axiosInstance.post("http://localhost:3000/a", journalData)
 

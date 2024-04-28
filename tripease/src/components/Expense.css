@@ -1,0 +1,23 @@
+.expense-container
+{
+    border:2px solid red;
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    padding-left: 1rem;
+}
+p{
+    color:white;
+    text-align: center;
+    font-family: cursive;
+    font-size: large
+}
+.buttons
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+}

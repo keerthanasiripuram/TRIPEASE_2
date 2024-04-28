@@ -1,0 +1,31 @@
+.doc-container
+{
+    border:2px solid red;
+    width: 61%;
+    margin: auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem
+}
+.otp-container
+{
+    border:2px solid green;
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-top: 5rem;
+    /* display: flex; */
+    color: white;
+    font-family: cursive;
+}
+.btn
+{
+    margin-top: 0.4rem;
+}
+img {
+    height: 15rem !important;
+    width: 15rem !important;
+}

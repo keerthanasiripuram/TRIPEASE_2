@@ -8,7 +8,7 @@
 .pnp.js
 /backend/uploads
 /backend/uploadJournal
-
+/backend/uploadDocuments
 # testing
 /coverage
 

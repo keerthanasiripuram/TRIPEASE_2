@@ -1,12 +1,26 @@
+.container{
+border:2px solid grey;
+display:flex;
+}
 .profile-container
 {
     border:2px solid black;
+    display: flex;
 }
 .left-profile-container
 {
-    border:2px solid pink;
+    border:2px solid violet;
+
+}
+.left-profile-container img{
+    border-radius: 50%;
+    height:50px;
 }
 .right-profile-container
 {
     border:2px solid yellow
+}
+.profile-body
+{
+    border:2px solid white
 }

@@ -1,0 +1,57 @@
+*
+{
+    margin:0;
+    padding:0
+}
+
+img{
+    height:70px;
+    width:50px;
+}
+.heading
+{
+    color:aqua;
+    font-size: 5rem;
+    text-align: center;
+    background-color: palegoldenrod;
+}
+#close
+{
+width:8rem;
+text-align: center;
+border-radius: 3px;
+padding: 2px;
+display:block
+}
+#submit,#delete,#show-btn
+{
+width:8rem;
+text-align: center;
+border-radius: 3px;
+padding: 2px;
+}
+#taskname,#taskdesc
+{
+    display: inline;
+}
+.expenses-container
+{
+    border:2px solid red;
+}
+.list-container
+{
+    border:2px solid red;
+}
+.outer-container
+{
+    border:2px solid green;
+    display:flex;
+}
+.name-container
+{
+    border:2px solid yellow
+}
+.add-container
+{
+    border:2px solid pink
+}

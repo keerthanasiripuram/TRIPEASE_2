@@ -25,5 +25,12 @@ const userSchema=new Schema({
         type:String,
         default:""
     },
+    otp:{
+        type:String,
+        default:""
+    },
+    otpExpiration:{
+        type:Date
+    }
 },)
 module.exports=mongoose.model('user',userSchema)

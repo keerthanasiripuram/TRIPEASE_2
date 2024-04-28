@@ -8,6 +8,13 @@ import Trial from "./components/Trial"
 import Profile from "./pages/Profile"
 import Reg from "./pages/Reg"
 import Modal from "./components/Modal"
+import SplitExpense from "./components/SplitExpense"
+import DocumentManagement from "./components/DocumentManagement"
+import Weather from "./components/Weather"
+import Trip from "./components/Trip"
+import Translator from './components/Translator';
+import Explore from "./components/Explore"
+import Emergency from "./components/Emergency"
 function App() {
   return (
     <>
@@ -20,6 +27,13 @@ function App() {
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/reg" element={<Reg/>}/>
       <Route path="/modal" element={<Modal/>}/>
+      <Route path="/split" element={<SplitExpense/>}/>
+      <Route path="/doc" element={<DocumentManagement/>}/>
+      <Route path="/weather" element={<Weather/>}/>
+      <Route path="/trip" element={<Trip/>}/>
+      <Route path="/translator" element={<Translator/>}/>
+      <Route path="/explore" element={<Explore/>}/>
+      <Route path="/emergency" element={<Emergency/>}/>
     </Routes>
     </BrowserRouter>
     </>
