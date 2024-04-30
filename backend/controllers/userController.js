@@ -9,7 +9,7 @@ const path = require('path');
 const twilio = require('twilio');
 const { Types } = require('mongoose');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
-const twilioClient = twilio(userid, pswd);
+const twilioClient = twilio(process.env.twilio_userid, process.env.twilio_password);
 
 module.exports.signup=async(req,res,next)=>
 { 
@@ -40,7 +40,7 @@ module.exports.signup=async(req,res,next)=>
 
 
 module.exports.login=async(req,res)=>
-{   console.log(37,req.body)
+{ 
     try{
         const userExists=await userModel.findOne({email:req.body.email});
         if(!userExists)
@@ -51,7 +51,7 @@ module.exports.login=async(req,res)=>
         const isMatch=await bcrypt.compare(req.body.password,userExists.password)
         if(!isMatch)
         {
-            return res.send(200).send({message:"password is incorrect",success:false})
+            return res.send({message:"password is incorrect",success:false})
         }
         else{
             const token=jwt.sign({id:userExists._id},process.env.secretKey,
@@ -59,7 +59,7 @@ module.exports.login=async(req,res)=>
                 expiresIn:"1d"
             })
             console.log(token)
-        return res.status(200).send({message:"login successful",success:true,token})
+        return res.send({message:"login successful",success:true,token})
         }
     }
     catch(error)
