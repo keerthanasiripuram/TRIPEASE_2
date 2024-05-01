@@ -1,5 +1,5 @@
 import React from 'react';
-// import "./SinglePost.css";
+ import styles from "./SinglePost.module.css";
 
 function SinglePost({ element }) {
     const imageUrl = `http://localhost:3000/TripEase/backend/uploadJournal/${element.images[0]}`;
@@ -7,16 +7,16 @@ function SinglePost({ element }) {
     const dateOnlyString = date.split("T")[0];
     return (
         <div className='conatiner'>
-            <div className='profile-container'>
-                <div className='left-profile-container'>
+            <div className='profileContainer'>
+                <div className='leftProfileContainer'>
                     <img className='profileImg' src="/assets/Diary.jpg" />
                 </div>
-                <div className='right-profile-container'>
+                <div className='rightProfileContainer'>
                     <p>Keerthana</p>
                     <p>{dateOnlyString}</p>
                 </div>
             </div>
-            <div className='profile-body'>
+            <div className='profileBody'>
                 <p>{element.description}</p>
                 {element.images.map((imgsrc,index)=>
                 (

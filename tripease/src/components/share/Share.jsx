@@ -9,7 +9,7 @@ import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined 
 import FormItem from "antd/es/form/FormItem";
 import axios from "axios";
 import axiosInstance from "../../interceptors/interceptor"
-
+import styles from "./share.module.css"
 export default function Share() {
 
   const [showModal, setShowModal] = useState(false)
@@ -57,11 +57,11 @@ const handleFileUpload = (event) => {
   reader.readAsDataURL(selectedFile);
 };
 return (
-  <div className="share">
-    <div className="shareWrapper">
-      <div className="shareBottom">
-        <div className="shareOptions">
-          <div className="shareOption">
+  <div className={styles.share}>
+    <div className={styles.shareWrapper}>
+      <div className={styles.shareBottom}>
+        <div className={styles.shareOptions}>
+          <div className={styles.shareOption}>
             <PermMedia htmlColor="blue" />
             {/* <a onTouchMove={uploadJournal}><span className="shareOptionText">Click here to Journal your Trip</span></a>*/}
             <div>
@@ -91,7 +91,7 @@ return (
                     />
                   </FormItem>
                   <div className="d-flex justify-content-end">
-                    <button className="btn btn-primary" type="submit">SAVE</button>
+                    <button className={styles.btn} type="submit">SAVE</button>
                   </div>
                 </Form>
               </Modal>

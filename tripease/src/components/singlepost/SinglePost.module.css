@@ -2,25 +2,25 @@
 border:2px solid grey;
 display:flex;
 }
-.profile-container
+.profileContainer
 {
     border:2px solid black;
     display: flex;
 }
-.left-profile-container
+.leftProfileContainer
 {
     border:2px solid violet;
 
 }
-.left-profile-container img{
+.leftProfileContainer img{
     border-radius: 50%;
     height:50px;
 }
-.right-profile-container
+.rightProfileContainer
 {
     border:2px solid yellow
 }
-.profile-body
+.profileBody
 {
     border:2px solid white
 }

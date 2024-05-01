@@ -34,7 +34,10 @@ export default function Login() {
                     <label >Password</label>
                     <input type="password" className="form-control" value={data.password} onChange={(e)=>{setdata({...data,password:e.target.value})}} placeholder="Password" />
                 </div>
-                <button type="submit" onClick={submitForm} className="btn btn1">Submit</button>
+                <div className={styles.btnContainer}>
+                <button type="submit" onClick={submitForm} className={styles.btn}>Submit</button>
+                <Link to='/register' style={{color:"#3d5676"}}>Create a New Account</Link>
+                </div>
             </form>
             </div>
             </div>

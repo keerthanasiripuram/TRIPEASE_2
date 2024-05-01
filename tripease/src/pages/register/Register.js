@@ -2,6 +2,8 @@ import React ,{useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import {message} from "antd"
+import styles from "./Register.module.css"
+import {Link} from "react-router-dom"
 //import imgurl from "../../public/assets/"
 export default function Register()
 {
@@ -94,40 +96,44 @@ export default function Register()
       };
     return(
         <>
-        <div className='login-page'>
-            <div className='login-container'>
+        <div className={styles.loginPage}>
+            <div className={styles.loginContainer}>
                 <img src="/assets/image-1.png" alt="not found"/>
-                <div className='login'>
+                <div className={styles.login}>
             <form>
             {img&&(
-           <div className="form-group input-field">
+           <div className={styles.inputField}>
                    <img src={img} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
             </div>)}
-            <div className="form-group input-field">
+            <div className={styles.inputField}>
                     <label >Name</label>
                     <input type="text"  className="form-control" value={registerdata.name} onChange={(e)=>setRegisterdata({...registerdata,name:e.target.value})} placeholder="Enter name" required="true"/>
                 </div>
-                <div className="form-group input-field">
+                <div className={styles.inputField}>
                     <label >Email address</label>
                     <input type="email" className="form-control" value={registerdata.email} onChange={(e)=>setRegisterdata({...registerdata,email:e.target.value})} placeholder="Enter email" required="true"/>
                 </div>
-                <div className="form-group input-field">
+                <div className={styles.inputField}>
                     <label >Phone Number</label>
                     <input type="text" className="form-control" value={registerdata.phoneNumber} onChange={(e)=>setRegisterdata({...registerdata,phoneNumber:e.target.value})} placeholder="Enter Mobile Number" required="true"/>
                 </div>
-                <div className="form-group input-field">
+                <div className={styles.inputField}>
                     <label >Password</label>
                     <input type="password" className="form-control" value={registerdata.password} onChange={(e)=>setRegisterdata({...registerdata,password:e.target.value})} placeholder="Password" required="true"/>
                 </div>
-                <div className="form-group input-field">
+                <div className={styles.inputField}>
                     <label >Confirm Password</label>
                     <input type="password"  className="form-control" value={registerdata.confirmPassword} onChange={(e)=>setRegisterdata({...registerdata,confirmPassword:e.target.value})} placeholder="Enter Confirm Password" required="true"/>
                 </div>
-                <div className="form-group input-field">
+                <div className={styles.inputField}>
                     <label >Upload Image</label>
                     <input type="file"  className="form-control" onChange={handleFileUpload} required="true"/>
                 </div>
-                <button type="submit" onClick={register} className="btn btn1">Submit</button>
+                
+                <div className={styles.btnContainer}>
+                <button type="submit" onClick={register} className={styles.btn}>Submit</button>
+                <Link to='/' style={{color:"#3d5676"}}>Already a user</Link>
+                </div>
             </form>
             </div>
             </div>

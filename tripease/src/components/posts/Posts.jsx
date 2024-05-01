@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import SinglePost from "../singlepost/SinglePost"
 import axios from "axios"
 import axiosInstance from "../../interceptors/interceptor"
+import styles from "./posts.module.css"
 export default function Posts({ post }) {
     console.log(post)
     /*const [like, setLike] = useState(post.like)

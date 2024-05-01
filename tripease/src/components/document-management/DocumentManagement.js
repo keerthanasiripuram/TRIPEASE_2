@@ -3,7 +3,7 @@ import { Modal, Form } from 'antd'
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import {message} from "antd"
 import axiosInstance from "../../interceptors/interceptor"
-// import "./DocumentManagement.css"
+ import styles from "./DocumentManagement.module.css"
 
 export default function DocumentManagement()
 {   
@@ -122,34 +122,34 @@ export default function DocumentManagement()
   >
     <Form layout="vertical" onFinish={handleSubmit} >
       {img && (
-        <div className="form-group input-field">
+        <div className={["form-group input-field"]}>
           <img src={img} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
         </div>)}
-      <div className="form-group input-field">
+      <div className={["form-group input-field"]}>
         <label >Upload Image</label>
         <input type="file" name="images" multiple className="form-control" onChange={handleFileUpload} />
       </div>
       
       <div className="d-flex justify-content-end">
-        <button className="btn btn-primary" type="submit" >SAVE</button>
+        <button className={[styles.btn,"btn-primary"]} type="submit" >SAVE</button>
       </div>
     </Form>
   </Modal>
     {display&&
-    <div className="otp-container">
+    <div className={styles.otpContainer}>
     <div className="form-group input-field">
                     <label >Phone Number</label>
                     <input type="text" className="form-control" value={phoneNumber} onChange={(e)=>setphoneNumber(e.target.value)} placeholder="Enter Mobile Number" />
                 </div>
-    <button type="submit" className="btn btn-primary" onClick={requestOTP}>Request OTP</button>
+    <button type="submit" className={[styles.btn,"btn-primary"]} onClick={requestOTP}>Request OTP</button>
     <div className="form-group input-field">
                     <label >Enter OTP</label>
                     <input type="text" className="form-control" value={otp} onChange={(e)=>setotp(e.target.value)} placeholder="Enter OTP" />
-                    <button type="submit" className="btn btn-primary" onClick={checkValidity}>check Validity</button>
+                    <button type="submit" className={[styles.btn,"btn-primary"]} onClick={checkValidity}>check Validity</button>
                 </div>
                 </div>}
                
-            <div className="doc-container">
+            <div className={styles.docContainer}>
             {!display&&documents&&documents.map((imgsrc,index)=>
                (
                     <img 

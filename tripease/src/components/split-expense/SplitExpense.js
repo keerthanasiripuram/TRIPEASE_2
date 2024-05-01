@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react"
 import axios from "axios"
 import Expense from "../expense-management/Expense"
-// import "./SplitExpense.css"
+import styles from "./SplitExpense.module.css"
+import { NearMe } from "@material-ui/icons"
 const SplitExpense=()=>
 {   
         const [friendsData, setfriendsData] = useState([])
@@ -64,20 +65,20 @@ const SplitExpense=()=>
         
         
         
-        <button type="submit" className="btn btn-primary" onClick={fetchParticipants}>Create Group</button>
+        <button type="submit" className={['btn-primary',styles.btn]} onClick={fetchParticipants}>Create Group</button>
        {/*<button type="submit" className="btn btn-primary" onClick={createExpense}>Expense</button>*/}
         {showExpense && <Expense participants={participants}/>}
-        {getParticipants.length>0&&<div className="participants">
+        {getParticipants.length>0&&<div className={styles.participants}>
             <h1>Participants</h1>
         {getParticipants.map((element)=>
         (
-            <p className="name" key={element._id}>{element.name}<span className="material-symbols-outlined icon" onClick={()=>addParticipant(element._id)}>
+            <p className={styles.name} key={element._id}>{element.name}<span className="material-symbols-outlined icon" onClick={()=>addParticipant(element._id)}>
             add
             </span></p>
         ))}
         <div className="buttons">
-        <button type="submit" className="btn btn-primary" onClick={close}>Cancel</button>
-        <button type="submit" className="btn btn-primary" onClick={createGroup}>Share Expense</button>
+        <button type="submit" className={['btn-primary',styles.btn]} onClick={close}>Cancel</button>
+        <button type="submit" className={['btn-primary',styles.btn]} onClick={createGroup}>Share Expense</button>
         {/*<button type="submit" className="btn btn-primary" onClick={createGroup}>Submit</button>*/}
         </div>
         </div>}

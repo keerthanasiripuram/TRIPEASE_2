@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {message} from "antd"
 import axiosInstance from "../../interceptors/interceptor"
-// import "./Expense.css"
+import styles from "./Expense.module.css"
 export default function Expense({ participants }) {
     console.log(participants)
     
@@ -61,7 +61,7 @@ export default function Expense({ participants }) {
     },[]
     )
     return (
-        <div className="expense-container">
+        <div className={styles.expenseContainer}>
             <p>Expense Form</p>
             <div>
                 <div className="form-group input-field">
@@ -69,10 +69,10 @@ export default function Expense({ participants }) {
                     <input type="text" className="form-control" value={totExpenses} onChange={(e) => settotExpenses(e.target.value)} placeholder="Enter Total Expenses" required="true" />
                 </div>
                 {totExpenses && <p>Total Expense:{totExpenses}</p>}
-                <div className="buttons">
-                    <button type="submit" className="btn btn-success" onClick={() => splitEvenly(totExpenses)}>Split Evenly</button>
+                <div className={styles.buttons}>
+                    <button type="submit" className={[styles.btn,"btn-success"]} onClick={() => splitEvenly(totExpenses)}>Split Evenly</button>
                     {evenAmount && <p>Split is:{evenAmount}</p>}
-                    <button type="submit" className="btn btn-danger" onClick={() => splitOnPropotions(totExpenses, participantsSplitFactor)}>splitOnPropotions</button>
+                    <button type="submit" className={[styles.btn,"btn-danger"]} onClick={() => splitOnPropotions(totExpenses, participantsSplitFactor)}>splitOnPropotions</button>
                 </div>
                 {displaynames&&proportionAmount && <p>Split is:{proportionAmount}</p>}
                     {names.map((name)=>
