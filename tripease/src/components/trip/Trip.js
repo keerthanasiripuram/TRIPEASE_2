@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-// import "./Trip.css"
+import styles from "./Trip.module.css"
 import {message} from "antd"
 import axios from "axios"
 export default function Trip() {
@@ -115,10 +115,10 @@ const handleExpenseChange = (propertyName, value) => {
     }
     return(
         <>
-        <div className="heading">Expense List</div>
-    <div className="outer-container">
-    <div className="expenses-container">
-    <div className="name-container m-5">
+        <div className={styles.heading}>Expense List</div>
+    <div className={styles.outerContainer}>
+    <div className={styles.expensesContainer}>
+    <div className={`m-5 ${styles.expensesContainer}`}>
     
     <div className="form-group input-field">
                     <label >Name</label>
@@ -134,7 +134,7 @@ const handleExpenseChange = (propertyName, value) => {
              
         </div>
     </div>
-    {addExpense&&<div className="add-container" id="task_form" >
+    {addExpense&&<div className={styles.addContainer} id="task_form" >
         <div className="mb-3 mx-5">
             <label htmlFor="task" className="form-label">Expense name</label>
             <input type="text" className="form-control" id="task" value={expenses.expenseName} onChange={(e)=>handleExpenseChange('expenseName', e.target.value)} placeholder="Enter task name"/>
@@ -143,26 +143,26 @@ const handleExpenseChange = (propertyName, value) => {
             <label htmlFor="desc" className="form-label">Expense Amount</label>
             <textarea className="form-control" id="desc" rows="3" value={expenses.expenseAmount} onChange={(e)=>handleExpenseChange('expenseAmount', e.target.value)}></textarea>
           </div>
-          <button className="mx-5" id="submit" type="submit" onClick={submit}>Submit</button>
-          <button className="mx-5" id="delete" type="submit" onClick={closeAddExpense}>Cancel</button>
+          <button className={`mx-5 ${styles.submit}`} type="submit" onClick={submit}>Submit</button>
+          <button className={`mx-5 ${styles.delete}`} type="submit" onClick={closeAddExpense}>Cancel</button>
     </div>
     }
     </div>
-    <div className="list-container">
-    <div className="container my-5 mx-5" style={{backgroundColor: "antiquewhite"}}>
+    <div className={styles.listContainer}>
+    <div className={`${styles.container} my-5 mx-5`} style={{backgroundColor: "antiquewhite"}}>
         <h2>Lists of Tasks are:</h2>
         
-        <button id="show-btn" onClick={displayExpenses} >Show</button>
-        <button id="close" onClick={closeExpenses}>Close</button>
+        <button className={styles.showBtn}  onClick={displayExpenses} >Show</button>
+        <button className={styles.close} onClick={closeExpenses}>Close</button>
         <br/>    
     </div>
 {expenseData&&expenseData.map((element)=>
         (
             <p key={element.expenseName}>
                 <div id="show-items">
-           Expense Name:<div id="taskname">{element.expenseName}</div>
+           Expense Name:<div className={styles.taskname} >{element.expenseName}</div>
             <br/>
-            Expense Amount:<div id="taskdesc">{element.expenseAmount}</div>
+            Expense Amount:<div className={styles.taskdesc} >{element.expenseAmount}</div>
         </div>
 
             </p>

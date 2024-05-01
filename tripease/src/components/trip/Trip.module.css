@@ -15,7 +15,7 @@ img{
     text-align: center;
     background-color: palegoldenrod;
 }
-#close
+.close
 {
 width:8rem;
 text-align: center;
@@ -23,31 +23,31 @@ border-radius: 3px;
 padding: 2px;
 display:block
 }
-#submit,#delete,#show-btn
+.submit,.delete,.showBtn
 {
 width:8rem;
 text-align: center;
 border-radius: 3px;
 padding: 2px;
 }
-#taskname,#taskdesc
+.taskname,.taskdesc
 {
     display: inline;
 }
-.expenses-container
+.expensesContainer
 {
     border:2px solid red;
 }
-.list-container
+.listContainer
 {
     border:2px solid red;
 }
-.outer-container
+.outerContainer
 {
     border:2px solid green;
     display:flex;
 }
-.name-container
+.nameContainer
 {
     border:2px solid yellow
 }

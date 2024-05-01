@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import  "./Trial.css";
+import styles from "./Trial.module.css";
 export default function Trial({element})
 {   
   
@@ -63,9 +63,9 @@ export default function Trial({element})
       <Slider {...settings}>
       {collections.map((element)=>
         (
-          <div className="image-container">
+          <div className={styles.imageContainer}>
           <img src="assets/Diary.jpg" alt="Description of the image"/>
-          <div className="text-overlay">
+          <div className={styles.textOverlay}>
              <h1 className='count'>Top {element.count}</h1>
              <p>{element.collection_name}</p>
           </div>

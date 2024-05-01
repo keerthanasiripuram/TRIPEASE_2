@@ -4,7 +4,7 @@ display: flex;
 flex-direction: row;
 gap:2rem
 }
-.image-container {
+.imageContainer {
   position: relative;
   width: 10rem; /* Adjust width as needed */
   height: 250px; /* Adjust height as needed */
@@ -13,14 +13,14 @@ gap:2rem
   gap:2rem;
 }
 
-.image-container img {
+.imageContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* or contain, depending on your needs */
   border-radius: 1rem;
 }
 
-.text-overlay {
+.textOverlay {
   position: absolute;
   top: 80%; /* Adjust vertical position */
   left: 40%; /* Adjust horizontal position */
@@ -32,7 +32,7 @@ gap:2rem
   flex-direction: column;
   flex-wrap: wrap;
 }
-.text-overlay h1{
+.textOverlay h1{
   border:2px solid red;
   font-size: 24px;
   background-color: aliceblue;
@@ -41,7 +41,7 @@ gap:2rem
   border-radius: 0.3rem;
   width:5rem;
 }
-.text-overlay p{
+.textOverlay p{
   font-size: 15px;
   border:2px solid green;
   width: 10rem;
