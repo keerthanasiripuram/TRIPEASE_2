@@ -7,42 +7,18 @@ export default function Login() {
     const [data,setdata]=useState({email:"",password:""})
     const navigate=useNavigate()
     const [toast,settoast]=useState('')
-    async function submitForm(e)
-    {
-        console.log(data)
+    async function submitForm(e) {
         e.preventDefault()
-        
-        //try{
-            console.log(data,16)
-            //const response=await axios.post("http://localhost:3000/login",data)
-            axios.post('/login', data)
+        axios.post('http://localhost:3000/login', data)
             .then((response) => {
-            console.log('POST Request Success:', response.data);
-            localStorage.setItem("token", response.data.token)
+                localStorage.setItem("token", response.data.token)
+                navigate('/home')
             })
             .catch((error) => {
-            console.error('POST Request Error:', error);
+                console.error('POST Request Error:', error);
             });
-            //console.log("response",response)
-       /* if(response.data.success)
-        {
-           //toast.success(response.data.message)
-           settoast(response.data.message)
-           message.success(response.data.message)
-           navigate('/home')
-        }
-        else{
-            //toast.error(response.data.message)
-            settoast(response.data.message)
-            message.success(response.data.message)
-        }
-        }
-        catch(err)
-        {
-            settoast("Something went wrong")
-        }*/
     }
-    console.log(toast)
+
     return (
         <>
         <div className='login-page'>

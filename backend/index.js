@@ -6,6 +6,7 @@ const authMiddleware = require('./authMiddleware')
 const userController=require('./controllers/userController')
 const multer = require('multer');
 const app=express()
+const verifyToken = require("./middlewares/token-verification")
 
 //dot env setup
 const path = require('path');
@@ -16,6 +17,7 @@ app.use(bodyParser.json())
 app.use(express.json());
 app.use(cors())
 app.use('/TripEase/backend/uploadJournal', express.static('D:/TripEase/backend/uploadJournal'));
+app.use('/TripEase/backend/uploads', express.static('D:/TripEase/backend/uploads'));
 app.use('/TripEase/backend/uploadDocuments', express.static('D:/TripEase/backend/uploadDocuments'));
 //Multer Code for image Uploading
 const storage = multer.diskStorage({
@@ -59,18 +61,18 @@ const DocumentUpload = multer({ storage: DocumentStorage});
 //End Points
 app.post('/register', upload.single('image'),userController.signup)
 app.post('/login',userController.login)
-app.post('/a',journalUpload.array('images'),userController.createJournalPost)
-app.get('/get-post-data',userController.getPostData)
-app.post('/get-friends-data',userController.getFriendsData)
-app.get('/get-participants',userController.getParticipants)
-app.post('/request-OTP',userController.request_OTP)
-app.post('/uploadDoc',DocumentUpload.array('images'),userController.uploadDoc)
-app.post('/expenseData',userController.expenseData)
-app.post('/addTripName',userController.addTripName)
-app.get('/displayExpenses',userController.displayExpenses)
-app.post('/checkValidity',userController.checkValidity)
-app.post('/translateText',userController.translateText)
-app.post('/fetchNames',userController.fetchNames)
+app.post('/a',verifyToken,journalUpload.array('images'),userController.createJournalPost)
+app.get('/get-post-data',verifyToken,userController.getPostData)
+app.post('/get-friends-data',verifyToken,userController.getFriendsData)
+app.get('/get-participants',verifyToken,userController.getParticipants)
+app.post('/request-OTP',verifyToken,userController.request_OTP)
+app.post('/uploadDoc',verifyToken,DocumentUpload.array('images'),userController.uploadDoc)
+app.post('/expenseData',verifyToken,userController.expenseData)
+app.post('/addTripName',verifyToken,userController.addTripName)
+app.get('/displayExpenses',verifyToken,userController.displayExpenses)
+app.post('/checkValidity',verifyToken,userController.checkValidity)
+app.post('/translateText',verifyToken,userController.translateText)
+app.post('/fetchNames',verifyToken,userController.fetchNames)
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err.stack);

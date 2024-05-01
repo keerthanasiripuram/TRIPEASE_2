@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route, useNavigate} from "react-router-dom"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Home from "./pages/home/Home"
@@ -15,10 +15,18 @@ import Trip from "./components/trip/Trip"
 import Translator from './components/Translator';
 import Explore from "./components/Explore"
 import Emergency from "./components/Emergency"
+import globalRouter from './globalRouter';
+
+function GlobleRouter() {
+  const navigate = useNavigate();
+  globalRouter.navigate = navigate;
+}
+
 function App() {
   return (
     <>
     <BrowserRouter>
+    <GlobleRouter/>
     <Routes>
       <Route path="/" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
