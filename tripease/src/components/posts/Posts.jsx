@@ -2,7 +2,7 @@ import "./posts.css"
 import { MoreVert } from "@material-ui/icons"
 import { Users } from "../../dummydata"
 import { useState, useEffect } from "react"
-import SinglePost from "../SinglePost"
+import SinglePost from "../singlepost/SinglePost"
 import axios from "axios"
 export default function Posts({ post }) {
     console.log(post)

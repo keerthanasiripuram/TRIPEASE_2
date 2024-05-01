@@ -1,9 +1,9 @@
 
 import "./Profile.css"
-import TopBar from '../components/topbar/topbar'
-import SideBar from '../components/sidebar/Sidebar'
-import RightBar from '../components/rightbar/rightbar'
-import Feed from '../components/feed/Feed'
+import TopBar from '../../components/topbar/topbar'
+import SideBar from '../../components/sidebar/Sidebar'
+import RightBar from '../../components/rightbar/rightbar'
+import Feed from '../../components/feed/Feed'
 export default function Profile({user})
 {
     return(
