@@ -1,4 +1,5 @@
 import axios from 'axios';
+import globalRouter from '../globalRouter';
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3000/', // Your API base URL
@@ -8,29 +9,33 @@ const axiosInstance = axios.create({
 // Add a request interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
-    // Do something before request is sent
-    console.log('Request Interceptor:', config);
+
+    let token = localStorage.getItem("token")
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {
-    // Do something with request error
     console.error('Request Interceptor Error:', error);
     return Promise.reject(error);
   }
 );
 
 // Add a response interceptor
-/*axiosInstance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   (response) => {
-    // Do something with successful response
-    console.log('Response Interceptor:', response);
-    return response;
+    if ([1002,1004].includes(response.data?.code)) {
+      globalRouter.navigate('/')
+      return Promise.reject(response.data);
+    }
+  return response;
   },
   (error) => {
     // Do something with response error
     console.error('Response Interceptor Error:', error);
     return Promise.reject(error);
   }
-);*/
+);
 
 export default axiosInstance;

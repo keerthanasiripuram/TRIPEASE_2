@@ -4,6 +4,7 @@ import { Users } from "../../dummydata"
 import { useState, useEffect } from "react"
 import SinglePost from "../singlepost/SinglePost"
 import axios from "axios"
+import axiosInstance from "../../interceptors/interceptor"
 export default function Posts({ post }) {
     console.log(post)
     /*const [like, setLike] = useState(post.like)
@@ -19,7 +20,7 @@ export default function Posts({ post }) {
             console.log("called")
             try {
 
-                const response = await axios.get('http://localhost:3000/get-post-data')
+                const response = await axiosInstance.get('http://localhost:3000/get-post-data')
                 
                 if (response.data.success) {
                     console.log(response.data.data)
