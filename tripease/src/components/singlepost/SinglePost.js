@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SinglePost.css";
+// import "./SinglePost.css";
 
 function SinglePost({ element }) {
     const imageUrl = `http://localhost:3000/TripEase/backend/uploadJournal/${element.images[0]}`;

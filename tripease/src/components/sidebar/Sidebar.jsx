@@ -1,6 +1,6 @@
 import CloseFriend from "../closeFriend/CloseFriend"
 import {Users} from "../../dummydata"
-import "./sidebar.css"
+// import "./sidebar.css"
 import {RssFeed} from "@material-ui/icons"
 export default function Sidebar()
 {   

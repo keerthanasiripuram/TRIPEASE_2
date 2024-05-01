@@ -3,7 +3,7 @@ import { Modal, Form } from 'antd'
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import {message} from "antd"
 import axiosInstance from "../../interceptors/interceptor"
-import "./DocumentManagement.css"
+// import "./DocumentManagement.css"
 
 export default function DocumentManagement()
 {   

@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react"
 import Feature from "../../components/feature/Feature"
 import Carousel from "../../components/carousel/Carousel"
 import Trial from "../../components/trial/Trial"
-import "./Home.css"
+// import "./Home.css"
 export default function Home()
 {  
 

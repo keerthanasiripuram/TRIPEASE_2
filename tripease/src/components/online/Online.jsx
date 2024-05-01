@@ -1,4 +1,4 @@
-import "./online.css"
+// import "./online.css"
 export default function Online({user})
 {
     return(

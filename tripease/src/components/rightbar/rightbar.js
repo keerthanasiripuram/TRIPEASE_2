@@ -1,4 +1,4 @@
-import "./rightbar.css"
+// import "./rightbar.css"
 import {Users} from "../../dummydata"
 import Online from "../online/Online"
 export default function rightbar()

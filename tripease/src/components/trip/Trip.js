@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import "./Trip.css"
+// import "./Trip.css"
 import {message} from "antd"
 import axios from "axios"
 export default function Trip() {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import  "./weather.css"
+// import  "./weather.css"
 export default function Weather() {
     const [place,setplace]=useState("") 
     const [location, setLocation] = useState("--------");

@@ -1,4 +1,4 @@
-import "./share.css"
+// import "./share.css"
 import { useState } from "react";
 import { PermMedia, Label, Room, EmojiEmotions } from "@material-ui/icons"
 import Feed from "../feed/Feed";

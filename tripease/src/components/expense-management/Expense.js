@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {message} from "antd"
 import axiosInstance from "../../interceptors/interceptor"
-import "./Expense.css"
+// import "./Expense.css"
 export default function Expense({ participants }) {
     console.log(participants)
     

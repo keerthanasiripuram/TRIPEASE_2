@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react"
 import { Link } from "react-router-dom"
-import "./Feature.css"
+// import "./Feature.css"
 export default function Feature({element})
 {
     return(

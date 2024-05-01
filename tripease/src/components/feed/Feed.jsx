@@ -1,4 +1,4 @@
-import "./feed.css"
+// import "./feed.css"
 import Share from "../share/Share"
 import Post from "../posts/Posts"
 import {Posts} from '../../dummydata'

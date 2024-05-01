@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import {Link,useNavigate} from "react-router-dom"
 import {message} from "antd"
-import "./Login.css"
+import styles from "./Login.module.css"
 export default function Login() {
     const [data,setdata]=useState({email:"",password:""})
     const navigate=useNavigate()
@@ -45,16 +45,16 @@ export default function Login() {
     console.log(toast)
     return (
         <>
-        <div className='login-page'>
-        <div className='login-container'>
+        <div className={styles.loginPage}>
+        <div className={styles.loginContainer}>
             <img src="/assets/login1.png" alt="not found"/>
-            <div className='login'>
+            <div className={styles.login}>
             <form>
-                <div className="form-group input-field">
+                <div className={['form-group',styles.inputField]}>
                     <label >Email address</label>
                     <input type="email" className="form-control" value={data.email} onChange={(e)=>{setdata({...data,email:e.target.value})}} placeholder="Enter email" />
                 </div>
-                <div className="form-group input-field">
+                <div className={['form-group',styles.inputField]}>
                     <label >Password</label>
                     <input type="password" className="form-control" value={data.password} onChange={(e)=>{setdata({...data,password:e.target.value})}} placeholder="Password" />
                 </div>
