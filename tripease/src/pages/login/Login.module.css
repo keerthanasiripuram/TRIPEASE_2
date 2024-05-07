@@ -1,8 +1,9 @@
 body{
     background-color: #accffe;
 }
-img{
-    height:20rem;
+.loginImg{
+    height:25rem;
+    width:20rem;
 }
 .loginContainer
 { 
@@ -18,6 +19,7 @@ img{
     border-radius: 10px;
     width: 30rem;
     padding: 20px;
+    margin-left: 5rem;
 }
 
 .loginPage{
@@ -38,7 +40,8 @@ img{
 .btn
 {
     border:2px solid #3d5676;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: #3d5676;
-    color:white
+    color:white;
+    padding: 0.2rem;
 }

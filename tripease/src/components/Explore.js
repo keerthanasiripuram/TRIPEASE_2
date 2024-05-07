@@ -52,18 +52,31 @@ async function fetchNearbyTouristSpots(latitude, longitude) {
       }
   }
   
-  // Example usage
-  const latitude = 40.7128; // Example: latitude of New York City
-  const longitude = -74.0060; // Example: longitude of New York City
-  fetchNearbyTouristSpots(latitude, longitude)
-    .then(touristSpots => {
-      console.log('Nearby tourist spots:', touristSpots);
-      // Display the tourist spots data to the user
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle the error (e.g., display a message to the user)
-    });
+  useEffect(() => {
+    const latitude = 40.7128; // Example: latitude of New York City
+    const longitude = -74.0060; // Example: longitude of New York City
+  
+    fetchNearbyTouristSpots(latitude, longitude)
+      .then(touristSpots => {
+        console.log('Nearby tourist spots:', touristSpots);
+        // Display the tourist spots data to the user
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle the error (e.g., display a message to the user)
+      });
+  
+    // Uncomment this block if you want to fetch the route
+    /*fetchRoute()
+      .then(() => {
+        // Route fetched successfully
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle the error (e.g., display a message to the user)
+      });*/
+  }, []); // Empty dependency array ensures the effect runs only once
+  
 
   //   function getEmergencyNumbers(latitude, longitude) {
   //     const apiKey = 'your_api_key_here';

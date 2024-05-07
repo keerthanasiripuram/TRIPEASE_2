@@ -9,34 +9,34 @@ body
     height:100px;
     background-color:#263859;
 }
-#search-form
+.searchForm
 {
     display:flex;
     justify-content: center;
     
     margin-top:100px;
 }
-#temp
+.temp
 {
     text-align: center;
 }
-#temp #temp-unit
+.temp .tempUnit
 {
     font-size:1.5rem;
     color:#ffffff;
 }
-#temp #temp-value
+.temp .tempValue
 {
     font-size:2rem;
     color:#ffffff;
 }
-#climate
+.climate
 {
     font-size:2.5rem;
     color:#ffffff;
     text-align:center;
 }
-#location
+.location
 {
     font-size:2.5rem;
     color:#ffffff;
@@ -44,7 +44,7 @@ body
 }
 
 
-#temp-icon
+.tempIcon
 {
     margin:1rem;
     width:40%;
@@ -64,7 +64,7 @@ main
     box-shadow:10px 10px 20px 10px rgba(112,102,102,0.2);
 }
 
-#search-button
+.searchButton
 {
     color:#494949;
     text-transform:uppercase;
@@ -78,14 +78,14 @@ main
     transition:all 0.4 ease 0s;
 
 }
-#search-button:hover
+.searchButton:hover
 {
     color:#ffffff;
     background:#ff6768;
     border-color:#ff6768;
     transition:all 0.4 ease 0s;
 }
-#search-input
+.searchInput
 {
     width:260px;
     overflow:hidden;

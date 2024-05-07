@@ -41,7 +41,7 @@ export default function Posts({ post }) {
 
         return (
         <>
-        <div className="right-container">
+        <div className={styles.rightContainer}>
             {postData.map((element)=>
             (   
                 

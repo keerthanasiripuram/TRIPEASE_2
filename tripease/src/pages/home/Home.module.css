@@ -1,14 +1,14 @@
-navbar
+.navbar
 {
     display:flex;
     padding: 1rem;
 }
-.left-container
+.leftContainer
 {
     border:2px solid red;
     padding:1rem;
 }
-.right-container
+.rightContainer
 {
     border:2px solid green;
     display:flex;

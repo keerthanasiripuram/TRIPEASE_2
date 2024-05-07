@@ -62,16 +62,15 @@ return (
       <div className={styles.shareBottom}>
         <div className={styles.shareOptions}>
           <div className={styles.shareOption}>
-            <PermMedia htmlColor="blue" />
             {/* <a onTouchMove={uploadJournal}><span className="shareOptionText">Click here to Journal your Trip</span></a>*/}
             <div>
+            <span className="material-symbols-outlined" onClick={() => {
 
-              <EditOutlined
-                onClick={() => {
-
-                  setShowModal(true)
-                }} />
-
+setShowModal(true)
+}}>
+imagesmode
+</span>
+              
               <Modal
                 open={showModal}
                 onCancel={() => setShowModal(false)}

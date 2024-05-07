@@ -2,10 +2,10 @@ import React, { useEffect,useState } from "react"
 import Feature from "../../components/feature/Feature"
 import Carousel from "../../components/carousel/Carousel"
 import Trial from "../../components/trial/Trial"
-// import "./Home.css"
+import styles from "./Home.module.css"
 export default function Home()
 {  
-
+    const [noOfSlides,setnoOfSlides]=useState(5)
     const links=[
         {   
             id:1,
@@ -38,28 +38,56 @@ export default function Home()
             feature_link:"flight"
         },
     ]
-    
+    const collections=[
+        {
+          count:10,
+          collection_name:'Beach Destinations'
+        },
+        {
+          count:11,
+          collection_name:'Weekend Gateways'
+        },
+        {
+          count:12,
+          collection_name:'Hill Stations'
+        },
+        {
+          count:13,
+          collection_name:'Adventure Destinations'
+        },
+        {
+          count:1,
+          collection_name:'Heritage Destinations'
+        },
+        {
+          count:2,
+          collection_name:'Pilgrimage Destinations'
+        },
+      ]
+
+
       
 
     
     return(
         <>
-        <navbar>
-            <div className="left-container">
+        <div className={styles.navbar}>
+            
+            <div className={styles.leftContainer}>
                 <h1>Trip<span style={{backgroundColor:"red",borderRadius: '5px',padding:'1px',marginLeft:'1px'}}>Ease</span></h1>
             </div>
-            <div className="right-container">
+            <div className={styles.rightContainer}>
             {links.map((element)=>
             (
                 <Feature  key={element.id} element={element}/>
             ))
             }
             </div>
-        </navbar>
+        </div>
        {/*<Carousel/>*/}
        <h2>Multi-Element Carousel</h2>
        
-        <Trial/>
+        <Trial data={collections} slides={noOfSlides}/>
         </>
     )
 }

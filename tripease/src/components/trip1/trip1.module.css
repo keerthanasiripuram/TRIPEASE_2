@@ -1,0 +1,84 @@
+.container
+{
+border:2px solid red;
+display:flex;
+flex-direction: row;
+height: 100vh;
+}
+.leftContainer
+{
+    border:2px solid yellow;
+    width:20rem;
+    display: flex;
+    flex-direction: column;
+}
+.rightContainer
+{
+    border:2px solid green;
+    width:100%;
+}
+.header
+{
+    border:2px solid red;
+    display: flex;
+    justify-content: space-between;
+    height:60px;
+    padding-top: 0.5rem;
+}
+.btngrp
+{
+    display:flex;
+    gap:0.5rem
+}
+.showBtn
+{
+    border: 2px solid green;
+    color:white;
+    background-color: green;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    width:80px;
+    height:40px;
+}
+.close
+{
+    border: 2px solid red;
+    color:white;
+    background-color:red;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    width:80px;
+    height:40px
+}
+.createGroupContainer
+{
+border:2px solid black;
+height:3rem;
+display:flex;
+justify-content: space-around;
+}
+.displayContainer
+{
+    border:2px solid brown;
+    height:100%;
+}
+.showExpenses
+{
+    border:2px solid violet;
+    display:flex;
+    flex-direction: column;
+    gap:0.2rem;
+}
+.showExpenseName
+{
+    border:2px solid rgb(22, 15, 65);
+    display: flex;
+    margin: auto;
+}
+.showExpenseAmount
+{
+    border:2px solid white;
+    display: flex;
+    margin: auto;
+}
+

@@ -98,7 +98,7 @@ export default function Register()
         <>
         <div className={styles.loginPage}>
             <div className={styles.loginContainer}>
-                <img src="/assets/image-1.png" alt="not found"/>
+                <img className={styles.registerImg} src="/assets/image-1.png" alt="not found"/>
                 <div className={styles.login}>
             <form>
             {img&&(
@@ -107,8 +107,8 @@ export default function Register()
             </div>)}
             <div className={styles.inputField}>
                     <label >Name</label>
-                    <input type="text"  className="form-control" value={registerdata.name} onChange={(e)=>setRegisterdata({...registerdata,name:e.target.value})} placeholder="Enter name" required="true"/>
-                </div>
+                    
+                </div><input type="text"  className="form-control" value={registerdata.name} onChange={(e)=>setRegisterdata({...registerdata,name:e.target.value})} placeholder="Enter name" required="true"/>
                 <div className={styles.inputField}>
                     <label >Email address</label>
                     <input type="email" className="form-control" value={registerdata.email} onChange={(e)=>setRegisterdata({...registerdata,email:e.target.value})} placeholder="Enter email" required="true"/>

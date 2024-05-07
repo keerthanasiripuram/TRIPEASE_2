@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react"
 import {message} from "antd"
 import axios from "axios"
+import axiosInstance from "../interceptors/interceptor"
 export default function Translator() {
     const [text,settext]=useState("")
     async function translate()
     {
         console.log(text)
         try {
-          const response = await axios.post("http://localhost:3000/teanslateText",{text:text})
+          const response = await axiosInstance.post("http://localhost:3000/translateText",{text:text})
           console.log(response)
           if (response.data.success) {
             message.success(response.data.message)    

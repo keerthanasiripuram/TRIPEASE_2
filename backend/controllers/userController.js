@@ -10,6 +10,7 @@ const twilio = require('twilio');
 const { Types } = require('mongoose');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const twilioClient = twilio(process.env.twilio_userid, process.env.twilio_password);
+const { LanguageTranslatorV3 } = require('ibm-watson');
 
 module.exports.signup=async(req,res,next)=>
 { 
@@ -197,7 +198,7 @@ module.exports.expenseData=async(req,res,next)=>
     console.log(req.body)
     try
     {
-        const foundExpense =await ExpenseListSchema.findOne({ user: "6617e43487d0d90e66cf8d13", budgetName: "manali" })
+        const foundExpense =await ExpenseListSchema.findOne({ user: "6617e43487d0d90e66cf8d13", budgetName: "hey11" })
         if (foundExpense) {
             // Add new expenses to the expenseList array
             foundExpense.expenseList.push(req.body);
@@ -228,7 +229,7 @@ module.exports.addTripName=async(req,res,next)=>
     {
         let TripNameData = {
             user:new Types.ObjectId("6617e43487d0d90e66cf8d13"),
-            budgetName: req.body.addTripName
+            budgetName: req.body.title
         }
         console.log(TripNameData)
         const newTripName=new ExpenseListSchema(TripNameData)
@@ -254,6 +255,33 @@ module.exports.displayExpenses=async(req,res,next)=>
         return res.status(500).send({message:error.message,success:false,error})
     }
 }
+module.exports.displaySelectedTripData=async(req,res,next)=>
+    { 
+        console.log(req.body)
+        try{
+            const ExpenseData=await ExpenseListSchema.find({user:'6617e43487d0d90e66cf8d13',budgetName: req.body.selectedTripName})
+            console.log("93",ExpenseData[0].expenseList)
+            return res.status(200).send({message:"Expense data fetched successfully",success:true,data:ExpenseData[0].expenseList})
+        }
+        catch(error)
+        {
+            return res.status(500).send({message:error.message,success:false,error})
+        }
+    }
+module.exports.displayTripList=async(req,res,next)=>
+    { 
+        
+        try{
+            const ExpenseData=await ExpenseListSchema.find()
+            console.log("93",ExpenseData)
+            return res.status(200).send({message:"Trips fetched successfully",data:ExpenseData,success:true})
+        }
+        catch(error)
+        {
+            return res.status(500).send({message:error.message,success:false,error})
+        }
+    }
+
 module.exports.checkValidity=async(req,res,next)=>
 { 
     console.log(req.body)
@@ -283,18 +311,35 @@ module.exports.checkValidity=async(req,res,next)=>
 }
 module.exports.translateText=async(req,res,next)=>
 {
-    const translateParams = {
-        text: 'Hello, how are you?',
-        source: 'en', // Source language code (e.g., 'en' for English)
-        target: 'es', // Target language code (e.g., 'es' for Spanish)
-      };
+    console.log("ibmmmmmm")
+    const languageTranslator = new LanguageTranslatorV3({
+        version: '21-4-2024', // Specify the date for versioning, for example '2022-01-01'
+        authenticator: {
+          apiKey: '5ed40e0a-bf33-4bed-b138-32f3bda66247',
+        },
+        serviceUrl: 'ed4bb7f7-4cb3-47e1-9ae2-ddd42d44c239',
+      });
+
+    // const translateParams = {
+    //     text: 'Hello, how are you?',
+    //     source: 'en', // Source language code (e.g., 'en' for English)
+    //     target: 'es', // Target language code (e.g., 'es' for Spanish)
+    //   };
       try {
-        const translationResult = await languageTranslator.translate(translateParams);
+        
+    const translationResult = await languageTranslator.translate({
+        text: 'Hello, how are you?',
+        target: 'es',
+      });
+  
+      res.json({ translation: translationResult.result.translations[0].translation });
+
+        // const translationResult = await languageTranslator.translate(translateParams);
         console.log(JSON.stringify(translationResult, null, 2));
         return res.status(200).send({message:"Translated successfully",success:true,data:translationResult})
       } catch (err) {
         console.log('error:', err);
-        return res.status(500).send({message:error.message,success:false,error})
+        return res.status(500).send({message:err.message,success:false,err})
       }
 }
 /*

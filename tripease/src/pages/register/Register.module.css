@@ -9,8 +9,9 @@ body{
     justify-content: center;
     gap: 5rem;
 }
-img{
+.registerImg{
     height: 25rem;
+    width: 10rem;
 }
 .login{
     border: 2px solid #3d5676;
@@ -37,7 +38,8 @@ img{
 .btn
 {
     border:2px solid #3d5676;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: #3d5676;
-    color:white
+    color:white;
+    padding: 0.2rem;
 }

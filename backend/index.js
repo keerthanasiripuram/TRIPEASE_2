@@ -73,6 +73,8 @@ app.get('/displayExpenses',verifyToken,userController.displayExpenses)
 app.post('/checkValidity',verifyToken,userController.checkValidity)
 app.post('/translateText',verifyToken,userController.translateText)
 app.post('/fetchNames',verifyToken,userController.fetchNames)
+app.get('/displayTripList',verifyToken,userController.displayTripList)
+app.post('/displaySelectedTripData',verifyToken,userController.displaySelectedTripData)
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err.stack);

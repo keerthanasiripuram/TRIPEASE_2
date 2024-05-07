@@ -15,8 +15,9 @@ import Trip from "./components/trip/Trip"
 import Translator from './components/Translator';
 import Explore from "./components/Explore"
 import Emergency from "./components/Emergency"
-import globalRouter from './globalRouter';
-
+import globalRouter from './globalRouter'
+import Navbar from "./components/navbar/Navbar";
+import Trip1 from "./components/trip1/trip1"
 function GlobleRouter() {
   const navigate = useNavigate();
   globalRouter.navigate = navigate;
@@ -33,8 +34,8 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/trial" element={<Trial/>}/>
       <Route path="/profile" element={<Profile/>}/>
-      <Route path="/reg" element={<Reg/>}/>
-      <Route path="/modal" element={<Modal/>}/>
+     {/* <Route path="/reg" element={<Reg/>}/>
+      <Route path="/modal" element={<Modal/>}/>*/}
       <Route path="/split" element={<SplitExpense/>}/>
       <Route path="/doc" element={<DocumentManagement/>}/>
       <Route path="/weather" element={<Weather/>}/>
@@ -42,6 +43,8 @@ function App() {
       <Route path="/translator" element={<Translator/>}/>
       <Route path="/explore" element={<Explore/>}/>
       <Route path="/emergency" element={<Emergency/>}/>
+      <Route path="/navbar" element={<Navbar/>}/>
+      <Route path="/trip1" element={<Trip1/>}/>
     </Routes>
     </BrowserRouter>
     </>

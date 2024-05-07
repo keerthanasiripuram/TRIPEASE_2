@@ -1,29 +1,27 @@
 
-// import "./Profile.css"
-import TopBar from '../../components/topbar/topbar'
-import SideBar from '../../components/sidebar/Sidebar'
-import RightBar from '../../components/rightbar/rightbar'
+import styles from "./Profile.module.css"
 import Feed from '../../components/feed/Feed'
+import Navbar from "../../components/navbar/Navbar"
 export default function Profile({user})
 {
+    console.log(user)
     return(
         <div>
-           <TopBar/>
-           <div className='profile'>
+           <Navbar/>
+           <div className={styles.profile}>
            
-           <div className="profileRight">
-            <div className="profileRightTop">
-                <div className="profileCover">
-                    <img src="assets/default_img.png" alt="" className="profileCoverImg" />
-                    <img src="assets/default_img.png" alt="" className="profileUserImg" />
-                    <div className="profileInfo">
-                    <h4 className="profileInfoName">Keerthana</h4>
-                    <span className="profileInfoDesc">Kikki</span>
+           <div className={styles.profileRight}>
+            <div className={styles.profileRightTop}>
+                <div className={styles.profileCover}>
+                    <img src="assets/default_img.png" alt="" className={styles.profileCoverImg} />
+                    <img src="assets/default_img.png" alt="" className={styles.profileUserImg}/>
+                    <div className={styles.profileInfo}>
+                    <h4 className={styles.profileInfoName}>Keerthana's Journal</h4>                
                 </div>
                 </div>
                 
             </div>
-            <div className="profileRightBottom">
+            <div className={styles.profileRightBottom}>
             <Feed/>
             </div>
            </div>

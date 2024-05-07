@@ -1,41 +1,4 @@
 
-/*import React, { useEffect } from 'react';
-import 'ol/ol.css'; // Import OpenLayers CSS
-import Map from 'ol/Map'; // Import Map class from OpenLayers
-import View from 'ol/View'; // Import View class from OpenLayers
-import TileLayer from 'ol/layer/Tile'; // Import TileLayer class from OpenLayers
-import OSM from 'ol/source/OSM'; // Import OSM class from OpenLayers
-
-function MapComponent() {
-  useEffect(() => {
-    // Create a new Map instance
-    const map = new Map({
-      target: 'map', // The ID of the map container element
-      layers: [
-        new TileLayer({
-          source: new OSM() // Create a new OpenStreetMap layer
-        })
-      ],
-      view: new View({
-        center: [0, 0], // Center coordinates (longitude, latitude)
-        zoom: 2 // Zoom level
-      })
-    });
-
-    // Clean up function to remove the map when the component unmounts
-    return () => {
-      map.setTarget(null);
-    };
-  }, []); // Empty dependency array ensures useEffect runs only once
-
-  return (
-    <div id="map" style={{ width: '100%', height: '400px' }}></div>
-  );
-}
-
-export default MapComponent;
-*/
-
 import React, { useEffect } from 'react';
 import 'ol/ol.css'; // Import OpenLayers CSS
 import Map from 'ol/Map'; // Import Map class from OpenLayers
@@ -49,8 +12,9 @@ import { Vector as VectorLayer } from 'ol/layer'; // Import VectorLayer class fr
 import { Vector as VectorSource } from 'ol/source'; // Import VectorSource class from OpenLayers
 import {Style, Icon } from 'ol/style'; // Import Icon class from OpenLayers
 function MapComponent() {
-  useEffect(() => {
+  useEffect(()=>{
     // Create a new Map instance
+    console.log("dfsdfsfsdd")
     const map = new Map({
       target: 'map', // The ID of the map container element
       layers: [
@@ -102,8 +66,8 @@ function MapComponent() {
         console.error('Error getting current location:', error);
       }
     );
-  }, []); // Empty dependency array ensures useEffect runs only once
-
+  },[])// Empty dependency array ensures useEffect runs only once
+  
   return (
     <div id="map" style={{ width: '100%', height: '400px' }}></div>
   );
@@ -111,183 +75,3 @@ function MapComponent() {
 
 export default MapComponent;
 
-/*
-import React, { useState } from 'react';
-import 'ol/ol.css'; // Import OpenLayers CSS
-import Map from 'ol/Map'; // Import Map class from OpenLayers
-import View from 'ol/View'; // Import View class from OpenLayers
-import TileLayer from 'ol/layer/Tile'; // Import TileLayer class from OpenLayers
-import OSM from 'ol/source/OSM'; // Import OSM class from OpenLayers
-import { fromLonLat } from 'ol/proj'; // Import fromLonLat function from OpenLayers
-
-function MapComponent() {
-  const [place, setPlace] = useState('');
-  const [coordinates, setCoordinates] = useState(null);
-
-  const handleSearch = async () => {
-    try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place}`);
-      const data = await response.json();
-      if (data && data.length > 0) {
-        const { lat, lon } = data[0];
-        setCoordinates([parseFloat(lon), parseFloat(lat)]);
-      } else {
-        setCoordinates(null);
-        console.log('Place not found');
-      }
-    } catch (error) {
-      console.error('Error searching for place:', error);
-    }
-  };
-
-  return (
-    <div>
-      <input type="text" value={place} onChange={(e) => setPlace(e.target.value)} placeholder="Enter a place" />
-      <button onClick={handleSearch}>Search</button>
-      <div id="map" style={{ width: '100%', height: '400px' }}></div>
-      {coordinates && (
-        <p>Coordinates: {coordinates[1]}, {coordinates[0]}</p>
-      )}
-      {coordinates && <MapDisplay coordinates={coordinates} />}
-    </div>
-  );
-}
-
-function MapDisplay({ coordinates }) {
-  if (!coordinates) {
-    return null;
-  }
-
-  const center = fromLonLat(coordinates);
-
-  
-  return (
-    <Map>
-      <View center={center} zoom={12} />
-      <TileLayer source={new OSM()} />
-    </Map>
-  );
-}
-
-export default MapComponent;*/
-/*
-import React, { useState } from 'react';
-import 'ol/ol.css'; // Import OpenLayers CSS
-import Map from 'ol/Map'; // Import Map class from OpenLayers
-import View from 'ol/View'; // Import View class from OpenLayers
-import TileLayer from 'ol/layer/Tile'; // Import TileLayer class from OpenLayers
-import OSM from 'ol/source/OSM'; // Import OSM class from OpenLayers
-import Feature from 'ol/Feature'; // Import Feature class from OpenLayers
-import Point from 'ol/geom/Point'; // Import Point class from OpenLayers
-import { fromLonLat } from 'ol/proj'; // Import fromLonLat function from OpenLayers
-import { Vector as VectorLayer } from 'ol/layer'; // Import VectorLayer class from OpenLayers
-import { Vector as VectorSource } from 'ol/source'; // Import VectorSource class from OpenLayers
-import { Icon, Style } from 'ol/style'; // Import Icon and Style classes from OpenLayers
-
-function MapComponent() {
-  const [place, setPlace] = useState('');
-  const [destination, setDestination] = useState('');
-  const [currentCoordinates, setCurrentCoordinates] = useState(null);
-  const [destinationCoordinates, setDestinationCoordinates] = useState(null);
-
-  const handleSearch = async () => {
-    try {
-      const responsePlace = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place}`);
-      const dataPlace = await responsePlace.json();
-      if (dataPlace && dataPlace.length > 0) {
-        const { lat, lon } = dataPlace[0];
-        setCurrentCoordinates([parseFloat(lon), parseFloat(lat)]);
-      } else {
-        setCurrentCoordinates(null);
-        console.log('Place not found');
-      }
-
-      const responseDestination = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`);
-      const dataDestination = await responseDestination.json();
-      if (dataDestination && dataDestination.length > 0) {
-        const { lat, lon } = dataDestination[0];
-        setDestinationCoordinates([parseFloat(lon), parseFloat(lat)]);
-      } else {
-        setDestinationCoordinates(null);
-        console.log('Destination not found');
-      }
-    } catch (error) {
-      console.error('Error searching for place:', error);
-    }
-  };
-
-  return (
-    <div>
-      <input type="text" value={place} onChange={(e) => setPlace(e.target.value)} placeholder="Enter current place" />
-      <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} placeholder="Enter destination place" />
-      <button onClick={handleSearch}>Search</button>
-      <div id="map" style={{ width: '100%', height: '400px' }}></div>
-      <MapDisplay currentCoordinates={currentCoordinates} destinationCoordinates={destinationCoordinates} />
-    </div>
-  );
-}
-
-function MapDisplay({ currentCoordinates, destinationCoordinates }) {
-  const center = currentCoordinates ? fromLonLat(currentCoordinates) : [0, 0];
-    console.log(center)
-  const map = new Map({
-    target: 'map',
-    layers: [
-      new TileLayer({
-        source: new OSM()
-      })
-    ],
-    view: new View({
-      center: center,
-      zoom: 10
-    })
-  });
-
-  // Add marker for current place
-  if (currentCoordinates) {
-    const currentMarker = new Feature({
-      geometry: new Point(fromLonLat(currentCoordinates))
-    });
-    const currentMarkerStyle = new Style({
-      image: new Icon({
-        src: 'https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/examples/data/icon.png'
-      })
-    });
-    currentMarker.setStyle(currentMarkerStyle);
-
-    const currentVectorSource = new VectorSource({
-      features: [currentMarker]
-    });
-    const currentVectorLayer = new VectorLayer({
-      source: currentVectorSource
-    });
-
-    map.addLayer(currentVectorLayer);
-  }
-
-  // Add marker for destination place
-  if (destinationCoordinates) {
-    const destinationMarker = new Feature({
-      geometry: new Point(fromLonLat(destinationCoordinates))
-    });
-    const destinationMarkerStyle = new Style({
-      image: new Icon({
-        src: 'https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/examples/data/icon.png'
-      })
-    });
-    destinationMarker.setStyle(destinationMarkerStyle);
-
-    const destinationVectorSource = new VectorSource({
-      features: [destinationMarker]
-    });
-    const destinationVectorLayer = new VectorLayer({
-      source: destinationVectorSource
-    });
-
-    map.addLayer(destinationVectorLayer);
-  }
-
-  return null; // Map is rendered outside of the React component
-}
-
-export default MapComponent;*/

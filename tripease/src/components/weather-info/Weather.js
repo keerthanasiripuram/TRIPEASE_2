@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-// import  "./weather.css"
+import  styles from "./weather.module.css"
 export default function Weather() {
     const [place,setplace]=useState("") 
     const [location, setLocation] = useState("--------");
@@ -57,22 +57,22 @@ export default function Weather() {
 
     return (
        <>
-       <form id="search-form">
-        <input type="search" value={place} onChange={(e)=>setplace(e.target.value)} placeholder="Enter the city" id="search-input" required autocomplete="off"/>
+       <form className={styles.searchForm}>
+        <input type="search" value={place} onChange={(e)=>setplace(e.target.value)} placeholder="Enter the city" className={styles.searchInput} required autocomplete="off"/>
         <br/>
         <br/>
-        <button id="search-button" onClick={searchButton}>Search</button>
+        <button className={styles.searchButton} onClick={searchButton}>Search</button>
     </form>
-    <main id="app-container">
-        <div id="location">
+    <main className={styles.appContainer}>
+        <div className={styles.location}>
               <p>{location}</p>
         </div>
-        <div id="temp">
-            <img id="temp-icon" src={tempIcon} alt="missing"/>
-            <p><span id="temp-value">{tempValue}</span><span id="temp-unit">&#176c</span></p>
+        <div className={styles.temp}>
+            <img className={styles.tempIcon} src={tempIcon} alt="missing"/>
+            <p><span className={styles.tempValue}>{tempValue}</span><span className={styles.tempUnit}>&#8451;</span></p>
         </div>
 
-        <div id="climate">
+        <div className={styles.climate}>
             <p>{climate}</p>
         </div>
     </main>

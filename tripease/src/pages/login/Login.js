@@ -23,7 +23,7 @@ export default function Login() {
         <>
         <div className={styles.loginPage}>
         <div className={styles.loginContainer}>
-            <img src="/assets/login1.png" alt="not found"/>
+            <img className={styles.loginImg} src="/assets/login1.png" alt="not found"/>
             <div className={styles.login}>
             <form>
                 <div className={['form-group',styles.inputField]}>
