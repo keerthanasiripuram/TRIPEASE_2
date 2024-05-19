@@ -12,6 +12,7 @@ const verifyToken=(req,res,next)=>{
                     return res.send({message:"Session Expired.. Login to continue",code:1002,success:false})
                 }
                 else{
+                    req.userId = dec.id
                     next();
                 }
             })
