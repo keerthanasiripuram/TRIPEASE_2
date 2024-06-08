@@ -41,27 +41,27 @@ export default function Home()
     const collections=[
         {
           count:10,
-          collection_name:'Beach Destinations'
+          collection_name:'Temple'
         },
         {
           count:11,
-          collection_name:'Weekend Gateways'
+          collection_name:'Park'
         },
         {
           count:12,
-          collection_name:'Hill Stations'
+          collection_name:'Museum'
         },
         {
           count:13,
-          collection_name:'Adventure Destinations'
+          collection_name:'Beach'
         },
         {
           count:1,
-          collection_name:'Heritage Destinations'
+          collection_name:'Fort'
         },
         {
           count:2,
-          collection_name:'Pilgrimage Destinations'
+          collection_name:'Waterfall'
         },
       ]
 

@@ -1,7 +1,15 @@
 import React, { useEffect,useState } from "react"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
+
 export default function Navbar()
 {  
+  const navigate =useNavigate()
+    function logout()
+    {
+      console.log("loogout")
+      localStorage.removeItem("token")
+      navigate('/')
+    }
     return(
         <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -10,7 +18,7 @@ export default function Navbar()
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a className="navbar-brand" href="#">Trip Ease</a>
+    <Link style={{color:"black",textDecoration:"None"}} to="/home">Trip Ease</Link>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0 " style={{gap:"1rem"}}>
         <Link style={{color:"black",textDecoration:"None"}} to="/doc">Document Management</Link>
         <Link style={{color:"black",textDecoration:"None"}} to="/split">Expense Management</Link>
@@ -24,7 +32,7 @@ export default function Navbar()
       <Link to="/profile" style={{color:"black",display:"flex",alignSelf:"center"}}><span className="material-symbols-outlined">
 account_circle
 </span></Link>
-        <button className="btn btn-outline-danger" type="submit">Logout</button>
+        <button className="btn btn-outline-danger" type="submit" onClick={logout}>Logout</button>
       </form>
     </div>
   </div>

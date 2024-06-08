@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 
-import {BrowserRouter,Routes,Route, useNavigate} from "react-router-dom"
+import {BrowserRouter,Routes,Switch,Route, useNavigate} from "react-router-dom"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Home from "./pages/home/Home"
@@ -18,6 +18,9 @@ import Emergency from "./components/Emergency"
 import globalRouter from './globalRouter'
 import Navbar from "./components/navbar/Navbar";
 import Trip1 from "./components/trip1/trip1"
+import Hotel from "./pages/Hotel/Hotel";
+import Spot from "./components/spot/Spot";
+import NotFound from './components/NotFound';
 function GlobleRouter() {
   const navigate = useNavigate();
   globalRouter.navigate = navigate;
@@ -36,15 +39,19 @@ function App() {
       <Route path="/profile" element={<Profile/>}/>
      {/* <Route path="/reg" element={<Reg/>}/>
       <Route path="/modal" element={<Modal/>}/>*/}
-      <Route path="/split" element={<SplitExpense/>}/>
-      <Route path="/doc" element={<DocumentManagement/>}/>
-      <Route path="/weather" element={<Weather/>}/>
-      <Route path="/trip" element={<Trip/>}/>
-      <Route path="/translator" element={<Translator/>}/>
-      <Route path="/explore" element={<Explore/>}/>
-      <Route path="/emergency" element={<Emergency/>}/>
-      <Route path="/navbar" element={<Navbar/>}/>
-      <Route path="/trip1" element={<Trip1/>}/>
+      <Route exact path="/split" element={<SplitExpense/>}/>
+      <Route exact path="/doc" element={<DocumentManagement/>}/>
+      <Route exact path="/weather" element={<Weather/>}/>
+      <Route exact path="/trip" element={<Trip/>}/>
+      <Route exact path="/translator" element={<Translator/>}/>
+      <Route exact path="/explore" element={<Explore/>}/>
+      <Route exact path="/emergency" element={<Emergency/>}/>
+      <Route exact path="/navbar" element={<Navbar/>}/>
+      <Route exact path="/trip1" element={<Trip1/>}/>
+      <Route exact path="/hotel" element={<Hotel/>}/>
+      {/* <Route path="/attractions" element={<Attractions/>}/> */}
+      <Route exact path="/spots" Component={Spot}/>
+      {/* <Route path="/*" element={<NotFound/>}/> */}
     </Routes>
     </BrowserRouter>
     </>

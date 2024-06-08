@@ -10,7 +10,8 @@ const twilio = require('twilio');
 const { Types } = require('mongoose');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const twilioClient = twilio(process.env.twilio_userid, process.env.twilio_password);
-const { LanguageTranslatorV3 } = require('ibm-watson');
+//const { LanguageTranslatorV3 } = require('ibm-watson');
+const { spawn } = require('child_process');
 
 module.exports.signup=async(req,res,next)=>
 { 
@@ -155,7 +156,7 @@ module.exports.getParticipants=async(req,res,next)=>
             // Save OTP and expiration time to database
             const user = await userModel.findOneAndUpdate({ phoneNumber:phoneNumber }, {
                 otp,
-                otpExpiration: Date.now() + 5 * 60 * 1000 // OTP expires in 5 minutes
+                otpExpiration: Date.now() + 1 * 60 * 1000 // OTP expires in 1 minutes
             }, { upsert: true, new: true });
     
             // Send OTP via SMS using Twilio
@@ -246,7 +247,8 @@ module.exports.displayExpenses=async(req,res,next)=>
 { 
     
     try{
-        const ExpenseData=await ExpenseListSchema.find({user:'6617e43487d0d90e66cf8d13',budgetName: "manali"})
+        let userId=new Types.ObjectId(req.userId)
+        const ExpenseData=await ExpenseListSchema.find({user:userId,budgetName: "manali"})
         console.log("93",ExpenseData[0].expenseList)
         return res.status(200).send({message:"Expense data fetched successfully",success:true,data:ExpenseData[0].expenseList})
     }
@@ -286,7 +288,8 @@ module.exports.checkValidity=async(req,res,next)=>
 { 
     console.log(req.body)
     try{
-        const otp=await userModel.findById('6621e1098fc1e66759295b54')
+        let userId=new Types.ObjectId(req.userId)
+        const otp=await userModel.findById(userId)
         console.log(otp.otp,req.body.otp)
         console.log(typeof(req.body.otp))
         console.log(typeof(otp.otp))
@@ -294,9 +297,9 @@ module.exports.checkValidity=async(req,res,next)=>
         {   
            /* const documents=await DocumentModel.find({user:'6621e1098fc1e66759295b54'}) why array 
             console.log(documents)*/
-            const documents=await DocumentModel.find({user:'6621e1098fc1e66759295b54'})
-            console.log(documents[0].images)
-            return res.status(200).send({message:"Documents fetched successfully",success:true,data:documents[0].images})
+            const documents=await DocumentModel.findOne({user:userId})
+            console.log(documents.images)
+            return res.status(200).send({message:"Documents fetched successfully",success:true,data:documents.images})
         }
         else
         {

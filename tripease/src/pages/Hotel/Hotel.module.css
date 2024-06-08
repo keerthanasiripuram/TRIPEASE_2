@@ -1,0 +1,94 @@
+
+.navbarContainer
+{
+    border:2px solid green;
+    display:flex;
+    width:50rem;
+    margin: auto;
+    justify-content: space-between;
+    background-color: lightslategray
+}
+.searchContainer
+{
+
+    display: flex;
+    background-color: white;
+    border-radius: 0.5rem;
+    gap:0.1rem;
+    
+}
+.iconContainer
+{
+    border:2px solid red;
+    position: relative;
+    margin-top: -2rem;
+}
+.icon{
+    color:black;
+}
+label{
+    display: inline-block;
+    color: white;
+    align-self: center;
+    border-radius: 0.1rem;
+}
+input {
+    padding: 0.3rem;
+    border: none;
+    border-radius: 1.5rem;
+}
+.dateContainer
+{
+    
+    display: flex;
+    gap: 0.5rem;
+}
+.searchIcon
+{
+display: flex;
+align-self: center;
+color: white;
+}
+.sectionContainer
+{
+    border:2px solid red;
+    width:50rem;
+    margin:auto;
+    height:auto;
+    margin-top: 1rem;
+}
+.leftSideBar
+{
+    border:2px solid yellow;
+    width:30%;
+    padding: 0.5rem;
+}
+.starRating {
+    font-size: 24px;
+  }
+  
+  .star {
+    cursor: pointer;
+    color:black
+  }
+  
+  .filled {
+    color: gold;
+    cursor:pointer
+  }
+
+  .alcohol
+  {
+    border:2px solid red;
+  }
+  .price
+  {
+    border:2px solid yellow;
+  }
+  .rating{
+    border:2px solid green;
+  }
+  p{
+    text-align: left !important;
+  }
+  

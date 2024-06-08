@@ -1,0 +1,17 @@
+.heading
+{
+    color:white;
+    font-family: cursive;
+    
+    border:2px solid yellow;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+.map{
+    border:2px solid red;
+    height: 500px;
+    width: 80%;
+    margin: auto;
+}

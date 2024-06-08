@@ -1,0 +1,26 @@
+.my-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .my-table th, .my-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .my-table th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  .my-table tr {
+    transition: background-color 0.3s ease; /* Add transition */
+  }
+  .my-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .my-table tr:hover {
+    background-color: #ddd;
+  }
+  

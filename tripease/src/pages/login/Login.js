@@ -36,7 +36,7 @@ export default function Login() {
                 </div>
                 <div className={styles.btnContainer}>
                 <button type="submit" onClick={submitForm} className={styles.btn}>Submit</button>
-                <Link to='/register' style={{color:"#3d5676"}}>Create a New Account</Link>
+                <Link to='/register' style={{color:"white"}}>Create a New Account</Link>
                 </div>
             </form>
             </div>

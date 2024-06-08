@@ -3,6 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from "./Trial.module.css";
+import {Link} from "react-router-dom"
+
+
 export default function Trial({data,slides})
 {   
   
@@ -38,15 +41,24 @@ export default function Trial({data,slides})
     ]
   }
   console.log(data)
+ 
   return (
+    <>
     <div style={{margin:"25px"}}>
       <Slider {...settings}>
       {data.map((element)=>
         (
+          
           <div className={styles.imageContainer} key={element.collection_name}>
-            <img
-                    src={`http://localhost:3000/TripEase/backend/uploadJournal/${element.collection_name}`} 
+            {element.collection_name}
+            <Link to={{
+        pathname: '/spots',
+      }}
+      state={element.collection_name}>
+        <img
+                    src="assets/Diary.jpg" 
                      alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                     </Link>
           {!element.collection_name.includes(".jpg")&&!element.collection_name.includes(".png")&&<div className={styles.textOverlay}>
              <h1 className='count'>Top {element.count}</h1>
              <p>{element.collection_name}</p>
@@ -57,9 +69,10 @@ export default function Trial({data,slides})
         
        
   
-  </Slider>
+      </Slider>
       </div>
-    
+      {/* <Spot/> */}
+      </>
   );
 
 

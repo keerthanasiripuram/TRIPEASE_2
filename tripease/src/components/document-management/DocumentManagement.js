@@ -195,10 +195,10 @@ search
                 </div>}
                
            {!searchDisplay&&!display&&<div className={styles.docContainer}>
-           {documents && documents.map((imgsrc, index) => {   
+           {documents && documents.length >0 ? documents.map((imgsrc, index) => {   
 
     const imgName = imgsrc.slice(13);
-
+    console.log(imgName)
     return (
         <div key={index} className={styles.picContainer}>
             <p>{imgName}</p>
@@ -208,7 +208,8 @@ search
             />
         </div>
     );
-})}
+    
+}):<p>No Images Found</p>}
 
                 </div>}
     
